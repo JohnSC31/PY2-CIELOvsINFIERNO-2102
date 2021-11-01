@@ -16,7 +16,8 @@ SOURCES += \
 
 HEADERS += \
     estructurasHumanos.h \
-    mainwindow.h
+    mainwindow.h \
+    structs.h
 
 FORMS += \
     mainwindow.ui
