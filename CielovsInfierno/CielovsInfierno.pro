@@ -11,12 +11,14 @@ CONFIG += c++11
 SOURCES += \
     Humano.cpp \
     ListaHumanos.cpp \
+    PeopleTree.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     estructurasHumanos.h \
-    mainwindow.h
+    mainwindow.h \
+    structs.h
 
 FORMS += \
     mainwindow.ui
