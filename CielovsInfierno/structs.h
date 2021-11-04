@@ -13,6 +13,7 @@
 struct Person; // persona
 struct PersonNode; // nodo de personas
 struct World; // la lista de personas
+struct Actions; // Pecados y buenas acciones
 
 struct PeopleTree; // arbol binario de busqueda
 struct TreeNode; // nodos del arbol
@@ -45,6 +46,25 @@ public:
     PersonNode * search(int personId, TreeNode * node);
     PeopleTree * generateTree(World * world);
     bool isLeaf(TreeNode * node);
+};
+
+// -------------------------------------- ESTRUCTURA PARA LAS BUENAS Y MALAS ACCIONES ----------------------------- //
+
+struct Actions{
+    QString type = "";
+    int goods[7] = {0,0,0,0,0,0,0}; // Contador de buenas acciones
+    int sinsCommited[7] = {0,0,0,0,0,0,0}; // Contador de pecaados
+    //Estos QString sirven para imprimir los pecados e identificarlos en el programa
+    QString goodActions[7] = {"Castidad", "Ayuno", "Donación", "Diligencia", "Calma", "Solidaridad", "Humildad" };
+    QString sins[7] = {"Lujuria",  "Gula", "Avaricia", "Pereza", "Ira", "Envidia", "Soberbia"};
+    //Procedimientos
+    void addGoods();
+    void addSins();
+    void printGoods();
+    void printSins();
+    int countGoods();
+    int countSins();
+
 };
 
 // -------------------------------------- ESTRUCTURAS PARA EL INFIERNO ----------------------------- //
