@@ -5,6 +5,7 @@
 #include <QQueue>
 #include <QtCore>
 #include <QDebug>
+#include <QFile>
 
 // Definicion de las todas las estructuras para el proyecto
 
@@ -22,12 +23,12 @@ struct TreeNode; // nodos del arbol
 struct Human{
 public:
     int id;
-    QString nombre;
-    QString apellido;
-    QString pais;
-    QString creencia;
-    QString profesion;
-    QString correo;
+    QString name;
+    QString lastName;
+    QString country;
+    QString belief;
+    QString profession;
+    QString email;
     tm fecha; //Componente ctime para tiempo actual
     //Lista Pecados
     //Lista Buenas Acciones
@@ -36,12 +37,12 @@ public:
 public:
     Human(){
         id = 0;
-        nombre = "";
-        apellido = "";
-        pais = "";
-        creencia = "";
-        profesion = "";
-        correo = "";
+        name = "";
+        lastName = "";
+        country = "";
+        belief = "";
+        profession = "";
+        email = "";
     }
 };
 
