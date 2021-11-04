@@ -11,7 +11,8 @@ int main(int argc, char *argv[])
     x.printSins();
     qDebug() << "Total buenas acciones: " << x.countGoods() << "\n";
     qDebug() << "Total de pecados: " << x.countSins() << "\n";*/
-
+    HumanList* lista = new HumanList();
+    qDebug()<<"Regusta: " << lista->namesList[0];
 
 
 

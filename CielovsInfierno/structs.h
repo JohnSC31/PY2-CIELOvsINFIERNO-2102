@@ -24,6 +24,7 @@ struct TreeNode; // nodos del arbol
 struct Human{
 public:
     int id;
+    int state; //0 - mundo; 1 - infierno; 2 - cielo;
     QString name;
     QString lastName;
     QString country;
@@ -44,6 +45,7 @@ public:
         belief = "";
         profession = "";
         email = "";
+
     }
 };
 
@@ -54,10 +56,32 @@ public:
     HumanNode* past; //Se puede cambiar por last, etc.
 };
 
-struct World{
+struct HumanList{
 public:
     HumanNode* firstNode;
     int numHumans;
+    QString namesList[1000];
+    QString lastNamesList[1000];
+    QString beliefsList[10];
+    QString countriesList[100];
+    QString jobsList[65];
+    bool usedNumbers[10000];
+
+public:
+    void generaterNumList(void);
+
+    void generateNames(void);
+    void generateLastNames(void);
+    void generateBeliefs(void);
+    void generateCountries(void);
+    void generateJobs(void);
+
+public:
+    HumanList(){
+        firstNode = 0;
+        numHumans = 0;
+        generateNames();
+    }
 };
 
 struct TreeNode{
