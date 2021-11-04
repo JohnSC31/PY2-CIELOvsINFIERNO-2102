@@ -5,13 +5,14 @@
 #include <QQueue>
 #include <QtCore>
 #include <QDebug>
+#include <QFile>
 
 // Definicion de las todas las estructuras para el proyecto
 
 
 // -------------------------------------- PROTOTIPOS -----------------------------------------------//
-struct Person; // persona
-struct PersonNode; // nodo de personas
+struct Human; // persona
+struct HumanNode; // nodo de personas
 struct World; // la lista de personas
 struct Actions; // Pecados y buenas acciones
 
@@ -20,16 +21,55 @@ struct TreeNode; // nodos del arbol
 
 
 // -------------------------------------- ESTRUCTURAS DEL MUNDO ------------------------------------ //
+struct Human{
+public:
+    int id;
+    QString name;
+    QString lastName;
+    QString country;
+    QString belief;
+    QString profession;
+    QString email;
+    tm fecha; //Componente ctime para tiempo actual
+    //Lista Pecados
+    //Lista Buenas Acciones
+    //Lista Hijos
+
+public:
+    Human(){
+        id = 0;
+        name = "";
+        lastName = "";
+        country = "";
+        belief = "";
+        profession = "";
+        email = "";
+    }
+};
+
+struct HumanNode{
+public:
+    Human* human;
+    HumanNode* next;
+    HumanNode* past; //Se puede cambiar por last, etc.
+};
+
+struct World{
+public:
+    HumanNode* firstNode;
+    int numHumans;
+};
+
 struct TreeNode{
 public:
     int personId;
-    PersonNode * personNode;
+    HumanNode * humanNode;
     TreeNode * leftChild; // hijo izquierdo
     TreeNode * rightChild; // hijo derecho
 
 public:
-    TreeNode(PersonNode * _personNode, int _personId){
-        personNode = _personNode;
+    TreeNode(HumanNode * _humanNode, int _personId){
+        humanNode = _humanNode;
         personId = _personId;
         leftChild = rightChild = NULL;
     }
@@ -41,9 +81,9 @@ public:
 
 public:
     PeopleTree(World * world, PeopleTree * oldPeopleTree);
-    void insert(PersonNode * _personNode);
-    TreeNode * insert(int _personId, PersonNode * _personeNode, TreeNode * node);
-    PersonNode * search(int personId, TreeNode * node);
+    void insert(HumanNode * _humanNode);
+    TreeNode * insert(int _personId, HumanNode * _personeNode, TreeNode * node);
+    HumanNode * search(int personId, TreeNode * node);
     PeopleTree * generateTree(World * world);
     bool isLeaf(TreeNode * node);
 };
