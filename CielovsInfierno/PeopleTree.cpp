@@ -19,13 +19,13 @@ PeopleTree::PeopleTree(World * world, PeopleTree * oldPeopleTree){
 
 }
 
-void PeopleTree::insert(PersonNode * newPersoneNode){
+void PeopleTree::insert(HumanNode * newPersoneNode){
 //     root = insert(newPersoneNode->person->id, newPersoneNode, root);
     // descomentar despues de que se completen las estructuras para las personas y
     // la lista de personas
 }
 
-TreeNode * PeopleTree::insert(int _personId, PersonNode * _personeNode, TreeNode * node){
+TreeNode * PeopleTree::insert(int _personId, HumanNode * _personeNode, TreeNode * node){
 
           if (node == NULL){
                     return new TreeNode(_personeNode, _personId);
@@ -42,16 +42,16 @@ TreeNode * PeopleTree::insert(int _personId, PersonNode * _personeNode, TreeNode
 }
 
 
-PersonNode * PeopleTree::search(int personId, TreeNode * node)
+HumanNode * PeopleTree::search(int personId, TreeNode * node)
  {
      // cuando el nodo es nulo, quiere decir que allí debe
      // ubicar el valor, en un nuevo nodo
      if (isLeaf(node)){
          // llegamos al final del arbol
-         return node->personNode;
+         return node->humanNode;
 
      }else if (node->personId == personId){
-        return node->personNode;
+        return node->humanNode;
 
      }else if (node->personId < personId){
         return search(personId, node->rightChild);

@@ -11,12 +11,12 @@ int main(int argc, char *argv[])
     x.printSins();
     qDebug() << "Total buenas acciones: " << x.countGoods() << "\n";
     qDebug() << "Total de pecados: " << x.countSins() << "\n";*/
+
+
+
+
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
     return a.exec();
-    // cambio nuevo en la rama de john
-    //Comentario de Fabian
-    // tercer comentario
-    //Otro cambio
 }
