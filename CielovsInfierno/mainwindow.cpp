@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
             QTextStream in(&file);
             while (!in.atEnd()) {
                 QString line = in.readLine();
-                qDebug() << line;
+//                qDebug() << line;
             }
             file.close();
         }
