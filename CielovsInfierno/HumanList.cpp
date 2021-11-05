@@ -1,6 +1,7 @@
 #include <structs.h>
 
 void HumanList::generaterNumList(){
+    // el minimo son 10000, pero el max son 100 000
     for(int i = 0; i < 10000; i++){
         usedNumbers[i] = false;
     }

@@ -1,9 +1,15 @@
 #include "structs.h"
 
+// genera un arbol vacio
+PeopleTree::PeopleTree(){
+    root = NULL;
+}
+
+
 // funcion para generar un arbol a partir de
 // una lista doblemente enlazada de personas
 // convierte el arbol actual en uno nuevo
-PeopleTree::PeopleTree(World * world, PeopleTree * oldPeopleTree){
+PeopleTree::PeopleTree(HumanList * humanList){
 
     // determinar los nodos a insertar en el nuevo arbol
     // sacando el 1% de la lista y tomando la potencia de 2 mayor mas cercana
