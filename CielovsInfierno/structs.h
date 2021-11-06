@@ -21,6 +21,10 @@ struct TreeNode; // nodos del arbol
 
 struct TheWorld;
 
+struct Demon;
+struct FamilyNode;
+struct DemonFamilies; // heap donde se almacenan las familias
+
 
 // -------------------------------------- ESTRUCTURAS DEL MUNDO ------------------------------------ //
 struct Human{
@@ -33,22 +37,15 @@ public:
     QString belief;
     QString profession;
     QString email;
-    tm fecha; //Componente ctime para tiempo actual
+    QString dateBrith;
+    HumanNode * father; // para asignarle o saber si ya tiene un padre
     //Lista Pecados
     //Lista Buenas Acciones
     //Lista Hijos
 
 public:
-    Human(){
-        id = 0;
-        name = "";
-        lastName = "";
-        country = "";
-        belief = "";
-        profession = "";
-        email = "";
-
-    }
+    Human();
+    Human(int _id, QString _name, QString _lastName, QString _country, QString belief, QString _profession);
 };
 
 struct HumanNode{
@@ -61,29 +58,12 @@ public:
 struct HumanList{
 public:
     HumanNode* firstNode;
-    int numHumans;
-    QString namesList[1000];
-    QString lastNamesList[1000];
-    QString beliefsList[10];
-    QString countriesList[100];
-    QString jobsList[65];
-    bool usedNumbers[10000];
+    int length;
+
 
 public:
-    void generaterNumList(void);
-
-    void generateNames(void);
-    void generateLastNames(void);
-    void generateBeliefs(void);
-    void generateCountries(void);
-    void generateJobs(void);
-
-public:
-    HumanList(){
-        firstNode = 0;
-        numHumans = 0;
-        generateNames();
-    }
+    HumanList();
+    void insertHuman(Human * newHuman);
 };
 
 // ----------------------- ESTRUCTURAS PARA EL ARBOL DE HUMANOS -----------
@@ -142,6 +122,14 @@ public:
     PeopleTree * peopleTree; // arbol de personas
     int treeCounter;
     int genTree;
+    // Lista de datos para la generacion de un humano
+    QString namesList[1000];
+    QString lastNamesList[1000];
+    QString beliefsList[10];
+    QString countriesList[100];
+    QString jobsList[65];
+    bool usedNumbers[10000];
+
     //ui
 
 public:
@@ -149,9 +137,20 @@ public:
     void generateHumans(int numHumans);
     HumanNode * searchHuman(int humanId);
     void printData();
+    bool validHumanId(); // si se puede crear un humano con ese id
+    void asignChilds(int childNum, HumanNode * humanNode);
 
     // suma de pecados y buenas acciones
     void sumOfActions();
+
+    // inicializacion para los datos para la generacion de humanos
+    void initHumanIdList();
+    void initNamesList();
+    void initLastNamesList();
+    void initBeliefsList();
+    void initCountriesList();
+    void initJobsList();
+
 
 };
 
