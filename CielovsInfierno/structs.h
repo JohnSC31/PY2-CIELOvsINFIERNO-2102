@@ -13,17 +13,20 @@
 // -------------------------------------- PROTOTIPOS -----------------------------------------------//
 struct Human; // persona
 struct HumanNode; // nodo de personas
-struct World; // la lista de personas
+struct HumanList; // la lista de personas
 struct Actions; // Pecados y buenas acciones
 
 struct PeopleTree; // arbol binario de busqueda
 struct TreeNode; // nodos del arbol
+
+struct TheWorld;
 
 
 // -------------------------------------- ESTRUCTURAS DEL MUNDO ------------------------------------ //
 struct Human{
 public:
     int id;
+    int state; //0 - mundo; 1 - infierno; 2 - cielo;
     QString name;
     QString lastName;
     QString country;
@@ -44,6 +47,7 @@ public:
         belief = "";
         profession = "";
         email = "";
+
     }
 };
 
@@ -54,12 +58,35 @@ public:
     HumanNode* past; //Se puede cambiar por last, etc.
 };
 
-struct World{
+struct HumanList{
 public:
     HumanNode* firstNode;
     int numHumans;
+    QString namesList[1000];
+    QString lastNamesList[1000];
+    QString beliefsList[10];
+    QString countriesList[100];
+    QString jobsList[65];
+    bool usedNumbers[10000];
+
+public:
+    void generaterNumList(void);
+
+    void generateNames(void);
+    void generateLastNames(void);
+    void generateBeliefs(void);
+    void generateCountries(void);
+    void generateJobs(void);
+
+public:
+    HumanList(){
+        firstNode = 0;
+        numHumans = 0;
+        generateNames();
+    }
 };
 
+// ----------------------- ESTRUCTURAS PARA EL ARBOL DE HUMANOS -----------
 struct TreeNode{
 public:
     int personId;
@@ -80,11 +107,11 @@ public:
     TreeNode * root;
 
 public:
-    PeopleTree(World * world, PeopleTree * oldPeopleTree);
+    PeopleTree();
+    PeopleTree(HumanList * humanList);
     void insert(HumanNode * _humanNode);
     TreeNode * insert(int _personId, HumanNode * _personeNode, TreeNode * node);
     HumanNode * search(int personId, TreeNode * node);
-    PeopleTree * generateTree(World * world);
     bool isLeaf(TreeNode * node);
 };
 
@@ -106,6 +133,29 @@ struct Actions{
     int countSins();
 
 };
+
+
+// --------------------- ESTRUCTURAS DEL MUNDO -----------------
+struct TheWorld{
+public:
+    HumanList * humanList; // lista de humanos doblemente enlazada
+    PeopleTree * peopleTree; // arbol de personas
+    int treeCounter;
+    int genTree;
+    //ui
+
+public:
+    TheWorld();
+    void generateHumans(int numHumans);
+    HumanNode * searchHuman(int humanId);
+    void printData();
+
+    // suma de pecados y buenas acciones
+    void sumOfActions();
+
+};
+
+
 
 // -------------------------------------- ESTRUCTURAS PARA EL INFIERNO ----------------------------- //
 

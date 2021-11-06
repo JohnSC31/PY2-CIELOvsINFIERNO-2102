@@ -10,9 +10,9 @@ CONFIG += c++11
 
 SOURCES += \
     Actions.cpp \
-    Humano.cpp \
-    ListaHumanos.cpp \
+    HumanList.cpp \
     PeopleTree.cpp \
+    TheWorld.cpp \
     main.cpp \
     mainwindow.cpp
 
