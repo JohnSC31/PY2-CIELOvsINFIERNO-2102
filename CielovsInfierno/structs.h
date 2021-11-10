@@ -6,6 +6,7 @@
 #include <QtCore>
 #include <QDebug>
 #include <QFile>
+#include <QtGlobal>
 
 // Definicion de las todas las estructuras para el proyecto
 
@@ -45,7 +46,7 @@ public:
 
 public:
     Human();
-    Human(int _id, QString _name, QString _lastName, QString _country, QString belief, QString _profession);
+    Human(int _id, QString _name, QString _lastName, QString _country, QString belief, QString _profession, QString email);
 };
 
 struct HumanNode{
@@ -63,7 +64,7 @@ public:
 
 public:
     HumanList();
-    void insertHuman(Human * newHuman);
+    void insertHuman(Human * newHuman, HumanNode * preHumanNode);
 };
 
 // ----------------------- ESTRUCTURAS PARA EL ARBOL DE HUMANOS -----------
@@ -90,6 +91,7 @@ public:
     PeopleTree();
     PeopleTree(HumanList * humanList);
     void insert(HumanNode * _humanNode);
+    int getNodeTreeAmount(int lengthList);
     TreeNode * insert(int _personId, HumanNode * _personeNode, TreeNode * node);
     HumanNode * search(int personId, TreeNode * node);
     bool isLeaf(TreeNode * node);
@@ -123,12 +125,12 @@ public:
     int treeCounter;
     int genTree;
     // Lista de datos para la generacion de un humano
-    QString namesList[1000];
-    QString lastNamesList[1000];
+    QString namesList[100];
+    QString lastNamesList[100];
     QString beliefsList[10];
-    QString countriesList[100];
-    QString jobsList[65];
-    bool usedNumbers[10000];
+    QString countriesList[10];
+    QString jobsList[20];
+    bool usedNumbers[100000];
 
     //ui
 
@@ -136,12 +138,15 @@ public:
     TheWorld();
     void generateHumans(int numHumans);
     HumanNode * searchHuman(int humanId);
+    HumanNode * getPreHuman(int humanId);
     void printData();
     bool validHumanId(); // si se puede crear un humano con ese id
     void asignChilds(int childNum, HumanNode * humanNode);
 
     // suma de pecados y buenas acciones
     void sumOfActions();
+    int genHumanId();
+    bool validHumanId(int newHumanId);
 
     // inicializacion para los datos para la generacion de humanos
     void initHumanIdList();

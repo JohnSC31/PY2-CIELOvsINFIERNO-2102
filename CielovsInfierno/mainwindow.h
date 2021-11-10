@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <math.h>
 #include "structs.h"
 
 QT_BEGIN_NAMESPACE

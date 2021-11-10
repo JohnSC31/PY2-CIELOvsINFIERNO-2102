@@ -22,11 +22,29 @@ PeopleTree::PeopleTree(HumanList * humanList){
 
     // for para world y cada que el contador de saltos llegue a cero se hace la insercion del nodo persona en el que se
     // encuentra y se reestablece
-
+    int nodeAmount = getNodeTreeAmount(humanList->length);
+    HumanNode * treeRoot = humanList->firstNode; // debe ser el que esta en la mitad
+    int insertJump = humanList->length / nodeAmount;
+    for(int i = 0; i < nodeAmount; i++){
+        // trabajo en progreso
+    }
 }
 
+// determinar la cantidad de nodos a insertar para la lista dada y que sea completo
+int PeopleTree::getNodeTreeAmount(int lengthList){
+    int powCounter = 0;
+
+    while(1 * lengthList / 100 > pow(2, powCounter)){
+        powCounter++;
+    }
+
+    // retorna la potencia de 2 mayor mas cercana al uno por ciento
+    return pow(2, powCounter);
+}
+
+
 void PeopleTree::insert(HumanNode * newPersoneNode){
-//     root = insert(newPersoneNode->person->id, newPersoneNode, root);
+     root = insert(newPersoneNode->human->id, newPersoneNode, root);
     // descomentar despues de que se completen las estructuras para las personas y
     // la lista de personas
 }
@@ -68,8 +86,6 @@ HumanNode * PeopleTree::search(int personId, TreeNode * node)
      }
 
  }
-
-
 
 
 // para saber si el nodo es hoja del arbol o no
