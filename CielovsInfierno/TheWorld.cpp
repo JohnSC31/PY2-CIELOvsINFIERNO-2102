@@ -27,19 +27,24 @@ void TheWorld::generateHumans(int numHumans){
     QString profession;
     QString email;
 
+    Human * newHuman;
+
     for(int i = 0; i < numHumans; i++){
         id = genHumanId();
         if(id <= 0){
             qDebug() << "No hay mas espacio para humanos";
             break;
         }
+        // se asigna los valores de forma aleatoria
         name = namesList[rand() % namesList->size()]; // se asigna nombre aleatorio
         lastName = lastNamesList[rand() % lastNamesList->size()];
         country = countriesList[rand() % countriesList->size()];
         belief = beliefsList[rand() % beliefsList->size()];
         profession = jobsList[rand() % jobsList->size()];
         email = "estudiante@estudiantec.cr";
-        humanList->insertHuman(new Human(id, name, lastName, country, belief, profession, email), getPreHuman(id));
+        newHuman = new Human(id, name, lastName, country, belief, profession, email);
+        // baja por el arbol
+        humanList->insertInOrder(newHuman, peopleTree->search(id, peopleTree->root));
     }
 
     // determinar cuando se genera un arbol nuevo
@@ -51,28 +56,6 @@ void TheWorld::generateHumans(int numHumans){
     }
 
 }
-
-
-// busca el nodo de la lista de humanos anterior al espacio donde se insertara el nuevo humano
-HumanNode * TheWorld::getPreHuman(int humanId){
-    HumanNode * tmp = peopleTree->search(humanId, peopleTree->root);
-    while(true){
-        if(tmp->human->id < humanId){
-            if(tmp->next->human->id < humanId){
-                // se encontro
-                break;
-            }else{
-                tmp = tmp->next;
-            }
-        }else{
-            tmp = tmp->past;
-        }
-    }
-
-    return tmp; // se encontro el nodo antes para insertar el humano
-
-}
-
 
 // Hace pecar y realizar buenas acciones a todos los humanos
 void TheWorld::sumOfActions(){
@@ -97,6 +80,8 @@ int TheWorld::genHumanId(){
     return newHumanId;
 }
 
+
+// valida si un id ya esta usado si no, lo coloca como ya usado
 bool TheWorld::validHumanId(int newHumanId){
     if(usedNumbers[newHumanId])
         return false;

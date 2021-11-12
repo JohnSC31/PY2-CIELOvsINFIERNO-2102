@@ -40,9 +40,8 @@ public:
     QString email;
     QString dateBrith;
     HumanNode * father; // para asignarle o saber si ya tiene un padre
-    //Lista Pecados
-    //Lista Buenas Acciones
-    //Lista Hijos
+    Actions * actions;
+    HumanList * childList; // lista de hijos
 
 public:
     Human();
@@ -54,17 +53,31 @@ public:
     Human* human;
     HumanNode* next;
     HumanNode* past; //Se puede cambiar por last, etc.
+
+public:
+    HumanNode(Human * _human){
+        human = _human;
+        past = next = NULL;
+    }
 };
 
 struct HumanList{
 public:
-    HumanNode* firstNode;
+    HumanNode * firstNode;
+    HumanNode * lastNode;
     int length;
 
 
 public:
     HumanList();
-    void insertHuman(Human * newHuman, HumanNode * preHumanNode);
+    void insertHuman(Human * newHuman); // sin arbol
+    void insertInOrder(Human * newHuman, HumanNode * refNode); // en orden a partir de nodo de referencia
+    HumanNode * getMidHuman(); // obtiene el nodo en el medio de la lista
+    // inserciones especiales
+    void insertBeginning(Human * newHuman);
+    void insertEnd(Human * newHuman);
+    void insertMiddle(Human * newHuman, HumanNode * preInsertNode);
+    bool isEmpty();
 };
 
 // ----------------------- ESTRUCTURAS PARA EL ARBOL DE HUMANOS -----------
@@ -100,13 +113,18 @@ public:
 // -------------------------------------- ESTRUCTURA PARA LAS BUENAS Y MALAS ACCIONES ----------------------------- //
 
 struct Actions{
+
+public:
     QString type = "";
     int goods[7] = {0,0,0,0,0,0,0}; // Contador de buenas acciones
     int sinsCommited[7] = {0,0,0,0,0,0,0}; // Contador de pecaados
     //Estos QString sirven para imprimir los pecados e identificarlos en el programa
     QString goodActions[7] = {"Castidad", "Ayuno", "Donación", "Diligencia", "Calma", "Solidaridad", "Humildad" };
     QString sins[7] = {"Lujuria",  "Gula", "Avaricia", "Pereza", "Ira", "Envidia", "Soberbia"};
+
+public:
     //Procedimientos
+    Actions(); // constructor
     void addGoods();
     void addSins();
     void printGoods();
@@ -122,8 +140,8 @@ struct TheWorld{
 public:
     HumanList * humanList; // lista de humanos doblemente enlazada
     PeopleTree * peopleTree; // arbol de personas
-    int treeCounter;
-    int genTree;
+    int treeCounter; // contador actual hasta llegar a generar un arbol
+    int genTree; // cada cuanto se genera un arbol
     // Lista de datos para la generacion de un humano
     QString namesList[100];
     QString lastNamesList[100];
@@ -138,7 +156,6 @@ public:
     TheWorld();
     void generateHumans(int numHumans);
     HumanNode * searchHuman(int humanId);
-    HumanNode * getPreHuman(int humanId);
     void printData();
     bool validHumanId(); // si se puede crear un humano con ese id
     void asignChilds(int childNum, HumanNode * humanNode);

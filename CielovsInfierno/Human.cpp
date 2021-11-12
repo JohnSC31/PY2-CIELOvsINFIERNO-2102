@@ -23,7 +23,6 @@ Human::Human(int _id, QString _name, QString _lastName, QString _country, QStrin
     // fecha en la que el humano fue creado
     dateBrith = QDateTime::currentDateTime().toString("aaaa-MM-dd hh: mm: ss dddd");
     father = NULL; // todos nacen sin ser papas
-    // lista de pecados
-    // lista de buenas acciones
-    // lista de hijos
+    actions = new Actions();
+    childList = new HumanList();
 }

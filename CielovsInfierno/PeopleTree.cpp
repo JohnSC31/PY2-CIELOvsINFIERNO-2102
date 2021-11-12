@@ -22,11 +22,16 @@ PeopleTree::PeopleTree(HumanList * humanList){
 
     // for para world y cada que el contador de saltos llegue a cero se hace la insercion del nodo persona en el que se
     // encuentra y se reestablece
-    int nodeAmount = getNodeTreeAmount(humanList->length);
-    HumanNode * treeRoot = humanList->firstNode; // debe ser el que esta en la mitad
+    int nodeAmount = getNodeTreeAmount(humanList->length); // iteraciones
+    HumanNode * rootHumanNode = humanList->getMidHuman(); // debe ser el que esta en la mitad
+    root = new TreeNode(rootHumanNode, rootHumanNode->human->id);
     int insertJump = humanList->length / nodeAmount;
+
+    HumanNode * pastTmp;
+    HumanNode * nextTmp;
+
     for(int i = 0; i < nodeAmount; i++){
-        // trabajo en progreso
+
     }
 }
 
