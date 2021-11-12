@@ -27,6 +27,9 @@ struct FamilyNode;
 struct DemonFamilies; // heap donde se almacenan las familias
 
 
+struct Universe;
+
+
 // -------------------------------------- ESTRUCTURAS DEL MUNDO ------------------------------------ //
 struct Human{
 public:
@@ -76,7 +79,7 @@ public:
     // inserciones especiales
     void insertBeginning(Human * newHuman);
     void insertEnd(Human * newHuman);
-    void insertMiddle(Human * newHuman, HumanNode * preInsertNode);
+    void insertMiddle(Human * newHuman, HumanNode * refNode);
     bool isEmpty();
 };
 
@@ -142,6 +145,12 @@ public:
     PeopleTree * peopleTree; // arbol de personas
     int treeCounter; // contador actual hasta llegar a generar un arbol
     int genTree; // cada cuanto se genera un arbol
+
+    // deben ser iguales al largo de la lista, para manejar todas las iteraciones
+    int namesLength = 100; // para los nombres y apellidos
+    int beliefLength = 10;
+    int countriesLength = 10;
+    int jobsLength = 20;
     // Lista de datos para la generacion de un humano
     QString namesList[100];
     QString lastNamesList[100];
@@ -183,6 +192,22 @@ public:
 
 // -------------------------------------- ESTRUCTURAS PARA EL CIELO -------------------------------- //
 
+
+
+// -------------------------------------- ESTRUCTURA PRINCIPAL ------------------------------------- //
+// estructura principal que contiene todas las demas estructuras
+struct Universe{
+public:
+    // las estructuras principales el mundo, infierno y cielo
+    TheWorld * world;
+    // infierno
+    // cielo
+
+public:
+    Universe();
+
+
+};
 
 
 

@@ -41,3 +41,21 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+//------------------- FUNCIONES DE LOS ACTION LISTENER DE LOS BOTONES----------------------------------------------
+// funcion para el boton de generar humanos
+void MainWindow::on_btnGenerateHumans_clicked(){
+    QString humansStr = ui->inpNumHumans->text();
+
+    if(validNumber(humansStr)){
+        ui->inpNumHumans->setText("");
+        universe->world->generateHumans(humansStr.toInt());
+        qDebug () << "se generan " + humansStr + " humanos";
+    }
+
+
+}
+
+
+
+

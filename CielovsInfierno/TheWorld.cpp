@@ -14,6 +14,7 @@ TheWorld::TheWorld(){
     initBeliefsList();
     initCountriesList();
     initJobsList();
+
 }
 
 
@@ -31,20 +32,26 @@ void TheWorld::generateHumans(int numHumans){
 
     for(int i = 0; i < numHumans; i++){
         id = genHumanId();
-        if(id <= 0){
+        if(id < 0){
             qDebug() << "No hay mas espacio para humanos";
             break;
         }
         // se asigna los valores de forma aleatoria
-        name = namesList[rand() % namesList->size()]; // se asigna nombre aleatorio
-        lastName = lastNamesList[rand() % lastNamesList->size()];
-        country = countriesList[rand() % countriesList->size()];
-        belief = beliefsList[rand() % beliefsList->size()];
-        profession = jobsList[rand() % jobsList->size()];
+        name = namesList[rand() % namesLength]; // se asigna nombre aleatorio
+        lastName = lastNamesList[rand() % namesLength];
+        country = countriesList[rand() % countriesLength];
+        belief = beliefsList[rand() % beliefLength];
+        profession = jobsList[rand() % jobsLength];
         email = "estudiante@estudiantec.cr";
         newHuman = new Human(id, name, lastName, country, belief, profession, email);
-        // baja por el arbol
-        humanList->insertInOrder(newHuman, peopleTree->search(id, peopleTree->root));
+        if(peopleTree->root == NULL){
+            // no hay arbol
+            humanList->insertHuman(newHuman);
+        }else{
+            // baja por el arbol y lo inserta
+            humanList->insertInOrder(newHuman, peopleTree->search(id, peopleTree->root));
+        }
+
     }
 
     // determinar cuando se genera un arbol nuevo
@@ -106,7 +113,7 @@ void TheWorld::initNamesList(){
     QFile file(filePath);
     QTextStream in(&file);
     int i = 0;
-    while (!in.atEnd() && i < namesList->size()) {
+    while (!in.atEnd() && i < namesLength) {
         QString line = in.readLine();
         namesList[i] = line;
         i++;
@@ -119,7 +126,7 @@ void TheWorld::initLastNamesList(){
     QFile file(filePath);
     QTextStream in(&file);
     int i = 0;
-    while (!in.atEnd() && lastNamesList->size()) {
+    while (!in.atEnd() && i < namesLength) {
         QString line = in.readLine();
         lastNamesList[i] = line;
         qDebug() << line;
@@ -133,7 +140,7 @@ void TheWorld::initBeliefsList(){
     QFile file(filePath);
     QTextStream in(&file);
     int i = 0;
-    while (!in.atEnd() && beliefsList->size()) {
+    while (!in.atEnd() && i < beliefLength) {
         QString line = in.readLine();
         beliefsList[i] = line;
         qDebug() << line;
@@ -147,7 +154,7 @@ void TheWorld::initCountriesList(){
     QFile file(filePath);
     QTextStream in(&file);
     int i = 0;
-    while (!in.atEnd() && countriesList->size()) {
+    while (!in.atEnd() && i < countriesLength) {
         QString line = in.readLine();
         countriesList[i] = line;
         qDebug() << line;
@@ -161,7 +168,7 @@ void TheWorld::initJobsList(){
     QFile file(filePath);
     QTextStream in(&file);
     int i = 0;
-    while (!in.atEnd() && jobsList->size()) {
+    while (!in.atEnd() && i < jobsLength) {
         QString line = in.readLine();
         jobsList[i] = line;
         qDebug() << line;

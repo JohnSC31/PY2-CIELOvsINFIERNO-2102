@@ -1,0 +1,10 @@
+debug/Actions.o
+debug/Human.o
+debug/HumanList.o
+debug/PeopleTree.o
+debug/TheWorld.o
+debug/Universe.o
+debug/helper.o
+debug/main.o
+debug/mainwindow.o
+debug/moc_mainwindow.o
