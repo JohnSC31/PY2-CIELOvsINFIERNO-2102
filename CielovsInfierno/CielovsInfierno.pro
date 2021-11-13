@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     Actions.cpp \
+    Demon.cpp \
     Human.cpp \
     HumanList.cpp \
     PeopleTree.cpp \

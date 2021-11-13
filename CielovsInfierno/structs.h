@@ -21,6 +21,9 @@ struct TreeNode; // nodos del arbol
 
 struct TheWorld;
 
+// condenación
+
+
 struct Demon;
 struct FamilyNode;
 struct DemonFamilies; // heap donde se almacenan las familias
@@ -152,6 +155,16 @@ public:
     void initJobsList();
 
 
+};
+
+//Condenación
+
+struct Demon{
+    QString name;
+    QString linkedSin;
+    Actions * actions;
+
+    QString searchLinkedSin();
 };
 
 
