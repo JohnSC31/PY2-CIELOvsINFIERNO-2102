@@ -49,6 +49,7 @@ void TheWorld::generateHumans(int numHumans){
             humanList->insertHuman(newHuman);
         }else{
             // baja por el arbol y lo inserta
+            qDebug () << "insercion con arbol ";
             humanList->insertInOrder(newHuman, peopleTree->search(id, peopleTree->root));
         }
 
@@ -58,6 +59,7 @@ void TheWorld::generateHumans(int numHumans){
     treeCounter += numHumans;
     if(treeCounter >= genTree){
         // genera un arbol con la lista de humanos que este
+        qDebug () << "se genera un arbol ";
         peopleTree = new PeopleTree(humanList);
         treeCounter = 0;
     }

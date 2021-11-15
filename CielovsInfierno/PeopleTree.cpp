@@ -22,7 +22,7 @@ PeopleTree::PeopleTree(HumanList * humanList){
     bool nextInsert = true; // cuando llega al final de a lista ya no inserta mas
     bool pastInsert = true; // cunado llega al inicio de la lista no inserta mas
 
-    for(int i = 0; i < nodeAmount; i++){
+    for(int i = 0; i < nodeAmount / 2; i++){
         while(insertJump > 0){
             if(nextTmp != humanList->lastNode){
                nextTmp = nextTmp->next; // se mueve a la derecha
@@ -35,6 +35,8 @@ PeopleTree::PeopleTree(HumanList * humanList){
             }else{
                 pastInsert = false;
             }
+
+            insertJump--;
         } // while
 
         if(nextInsert){
@@ -69,16 +71,16 @@ void PeopleTree::insert(HumanNode * newHumanNode){
     // la lista de personas
 }
 
-TreeNode * PeopleTree::insert(int _personId, HumanNode * _personeNode, TreeNode * node){
+TreeNode * PeopleTree::insert(int humanId, HumanNode * humanNode, TreeNode * node){
 
           if (node == NULL){
-                    return new TreeNode(_personeNode, _personId);
+                    return new TreeNode(humanNode, humanId);
 
-          }else if (node->personId < _personId){
-            node->rightChild = insert(_personId, _personeNode, node->rightChild);
+          }else if (node->personId < humanId){
+            node->rightChild = insert(humanId, humanNode, node->rightChild);
 
-          }else if (node->personId >= _personId){
-             node->leftChild = insert(_personId, _personeNode, node->leftChild);
+          }else if (node->personId >= humanId){
+             node->leftChild = insert(humanId, humanNode, node->leftChild);
 
           }
 
@@ -86,7 +88,7 @@ TreeNode * PeopleTree::insert(int _personId, HumanNode * _personeNode, TreeNode 
 }
 
 
-HumanNode * PeopleTree::search(int personId, TreeNode * node)
+HumanNode * PeopleTree::search(int humanId, TreeNode * node)
  {
      // cuando el nodo es nulo, quiere decir que allí debe
      // ubicar el valor, en un nuevo nodo
@@ -94,19 +96,18 @@ HumanNode * PeopleTree::search(int personId, TreeNode * node)
          // llegamos al final del arbol
          return node->humanNode;
 
-     }else if (node->personId == personId){
+     }else if (node->personId == humanId){
         return node->humanNode;
 
-     }else if (node->personId < personId){
-        return search(personId, node->rightChild);
+     }else if (node->personId < humanId){
+        return search(humanId, node->rightChild);
 
      }else{
-        return search(personId, node->leftChild);
+        return search(humanId, node->leftChild);
 
      }
 
  }
-
 
 // para saber si el nodo es hoja del arbol o no
 bool PeopleTree::isLeaf(TreeNode *node){
