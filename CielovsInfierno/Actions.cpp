@@ -2,6 +2,10 @@
 #include <QDebug>
 #include <time.h> //Librería para los random
 
+Actions::Actions(){
+    // constructor de acciones
+}
+
 void Actions::addGoods(){ //Añade las buenas acciones al humano
      srand(time(NULL)); //Inicializa los random
     int randomGood;

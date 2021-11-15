@@ -6,6 +6,7 @@
 #include <QtCore>
 #include <QDebug>
 #include <QFile>
+#include <QtGlobal>
 
 // Definicion de las todas las estructuras para el proyecto
 
@@ -26,6 +27,9 @@ struct FamilyNode;
 struct DemonFamilies; // heap donde se almacenan las familias
 
 
+struct Universe;
+
+
 // -------------------------------------- ESTRUCTURAS DEL MUNDO ------------------------------------ //
 struct Human{
 public:
@@ -39,13 +43,12 @@ public:
     QString email;
     QString dateBrith;
     HumanNode * father; // para asignarle o saber si ya tiene un padre
-    //Lista Pecados
-    //Lista Buenas Acciones
-    //Lista Hijos
+    Actions * actions;
+    HumanList * childList; // lista de hijos
 
 public:
     Human();
-    Human(int _id, QString _name, QString _lastName, QString _country, QString belief, QString _profession);
+    Human(int _id, QString _name, QString _lastName, QString _country, QString belief, QString _profession, QString email);
 };
 
 struct HumanNode{
@@ -53,17 +56,31 @@ public:
     Human* human;
     HumanNode* next;
     HumanNode* past; //Se puede cambiar por last, etc.
+
+public:
+    HumanNode(Human * _human){
+        human = _human;
+        past = next = NULL;
+    }
 };
 
 struct HumanList{
 public:
-    HumanNode* firstNode;
+    HumanNode * firstNode;
+    HumanNode * lastNode;
     int length;
 
 
 public:
     HumanList();
-    void insertHuman(Human * newHuman);
+    void insertHuman(Human * newHuman); // sin arbol
+    void insertInOrder(Human * newHuman, HumanNode * refNode); // en orden a partir de nodo de referencia
+    HumanNode * getMidHuman(); // obtiene el nodo en el medio de la lista
+    // inserciones especiales
+    void insertBeginning(Human * newHuman);
+    void insertEnd(Human * newHuman);
+    void insertMiddle(Human * newHuman, HumanNode * refNode);
+    bool isEmpty();
 };
 
 // ----------------------- ESTRUCTURAS PARA EL ARBOL DE HUMANOS -----------
@@ -90,6 +107,7 @@ public:
     PeopleTree();
     PeopleTree(HumanList * humanList);
     void insert(HumanNode * _humanNode);
+    int getNodeTreeAmount(int lengthList);
     TreeNode * insert(int _personId, HumanNode * _personeNode, TreeNode * node);
     HumanNode * search(int personId, TreeNode * node);
     bool isLeaf(TreeNode * node);
@@ -98,13 +116,18 @@ public:
 // -------------------------------------- ESTRUCTURA PARA LAS BUENAS Y MALAS ACCIONES ----------------------------- //
 
 struct Actions{
+
+public:
     QString type = "";
     int goods[7] = {0,0,0,0,0,0,0}; // Contador de buenas acciones
     int sinsCommited[7] = {0,0,0,0,0,0,0}; // Contador de pecaados
     //Estos QString sirven para imprimir los pecados e identificarlos en el programa
     QString goodActions[7] = {"Castidad", "Ayuno", "Donación", "Diligencia", "Calma", "Solidaridad", "Humildad" };
     QString sins[7] = {"Lujuria",  "Gula", "Avaricia", "Pereza", "Ira", "Envidia", "Soberbia"};
+
+public:
     //Procedimientos
+    Actions(); // constructor
     void addGoods();
     void addSins();
     void printGoods();
@@ -120,15 +143,21 @@ struct TheWorld{
 public:
     HumanList * humanList; // lista de humanos doblemente enlazada
     PeopleTree * peopleTree; // arbol de personas
-    int treeCounter;
-    int genTree;
+    int treeCounter; // contador actual hasta llegar a generar un arbol
+    int genTree; // cada cuanto se genera un arbol
+
+    // deben ser iguales al largo de la lista, para manejar todas las iteraciones
+    int namesLength = 100; // para los nombres y apellidos
+    int beliefLength = 10;
+    int countriesLength = 10;
+    int jobsLength = 20;
     // Lista de datos para la generacion de un humano
-    QString namesList[1000];
-    QString lastNamesList[1000];
+    QString namesList[100];
+    QString lastNamesList[100];
     QString beliefsList[10];
-    QString countriesList[100];
-    QString jobsList[65];
-    bool usedNumbers[10000];
+    QString countriesList[10];
+    QString jobsList[20];
+    bool usedNumbers[100000];
 
     //ui
 
@@ -142,6 +171,8 @@ public:
 
     // suma de pecados y buenas acciones
     void sumOfActions();
+    int genHumanId();
+    bool validHumanId(int newHumanId);
 
     // inicializacion para los datos para la generacion de humanos
     void initHumanIdList();
@@ -161,6 +192,22 @@ public:
 
 // -------------------------------------- ESTRUCTURAS PARA EL CIELO -------------------------------- //
 
+
+
+// -------------------------------------- ESTRUCTURA PRINCIPAL ------------------------------------- //
+// estructura principal que contiene todas las demas estructuras
+struct Universe{
+public:
+    // las estructuras principales el mundo, infierno y cielo
+    TheWorld * world;
+    // infierno
+    // cielo
+
+public:
+    Universe();
+
+
+};
 
 
 
