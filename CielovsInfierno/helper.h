@@ -6,4 +6,6 @@
 bool validStr(QString str);
 bool validNumber(QString strNumber);
 
+QString capitalize(QString str);
+
 #endif // HELPER_H
