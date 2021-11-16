@@ -27,7 +27,7 @@ public:
     QWidget *centralwidget;
     QLabel *label;
     QPushButton *btnGenerateHumans;
-    QPushButton *GenerarPecados;
+    QPushButton *btnSumOfActions;
     QPushButton *GenerarBuenasAcciones;
     QPushButton *ConsultarMiembrosDeInfierno;
     QPushButton *IniciarSalvacion;
@@ -56,9 +56,9 @@ public:
         btnGenerateHumans = new QPushButton(centralwidget);
         btnGenerateHumans->setObjectName(QString::fromUtf8("btnGenerateHumans"));
         btnGenerateHumans->setGeometry(QRect(50, 110, 171, 31));
-        GenerarPecados = new QPushButton(centralwidget);
-        GenerarPecados->setObjectName(QString::fromUtf8("GenerarPecados"));
-        GenerarPecados->setGeometry(QRect(50, 180, 171, 51));
+        btnSumOfActions = new QPushButton(centralwidget);
+        btnSumOfActions->setObjectName(QString::fromUtf8("btnSumOfActions"));
+        btnSumOfActions->setGeometry(QRect(50, 180, 171, 51));
         GenerarBuenasAcciones = new QPushButton(centralwidget);
         GenerarBuenasAcciones->setObjectName(QString::fromUtf8("GenerarBuenasAcciones"));
         GenerarBuenasAcciones->setGeometry(QRect(50, 270, 171, 51));
@@ -102,7 +102,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Cielo vs Infierno \360\237\230\210", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Cielo vs Infierno \360\237\221\271", nullptr));
         btnGenerateHumans->setText(QCoreApplication::translate("MainWindow", "Generar Humanos", nullptr));
-        GenerarPecados->setText(QCoreApplication::translate("MainWindow", "Generar Pecados", nullptr));
+        btnSumOfActions->setText(QCoreApplication::translate("MainWindow", "Suma de acciones", nullptr));
         GenerarBuenasAcciones->setText(QCoreApplication::translate("MainWindow", "Generar Buenas Acciones", nullptr));
         ConsultarMiembrosDeInfierno->setText(QCoreApplication::translate("MainWindow", "Miembros del infierno", nullptr));
         IniciarSalvacion->setText(QCoreApplication::translate("MainWindow", "Iniciar salvaci\303\263n", nullptr));

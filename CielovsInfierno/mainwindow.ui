@@ -48,7 +48,7 @@
      <string>Generar Humanos</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="GenerarPecados">
+   <widget class="QPushButton" name="btnSumOfActions">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -58,7 +58,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Generar Pecados</string>
+     <string>Suma de acciones</string>
     </property>
    </widget>
    <widget class="QPushButton" name="GenerarBuenasAcciones">

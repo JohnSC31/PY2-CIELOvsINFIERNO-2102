@@ -8,28 +8,28 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     // pruebas para la lectura de archivos
-    QString filePath = QDir::currentPath() + "/../Names.txt";
-    QFile file(filePath);
-    QString errMsg;
-    QFileDevice::FileError err = QFileDevice::NoError;
-    if (!file.exists()) {
-        qDebug() << "No existe el archivox2";
-    }else{
-        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
-            qDebug() << "Error al abrir el archivo";
-            errMsg = file.errorString();
-            err = file.error();
-            qDebug() << errMsg;
+//    QString filePath = QDir::currentPath() + "/../Names.txt";
+//    QFile file(filePath);
+//    QString errMsg;
+//    QFileDevice::FileError err = QFileDevice::NoError;
+//    if (!file.exists()) {
+//        qDebug() << "No existe el archivox2";
+//    }else{
+//        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
+//            qDebug() << "Error al abrir el archivo";
+//            errMsg = file.errorString();
+//            err = file.error();
+//            qDebug() << errMsg;
 
-        }else{
-            QTextStream in(&file);
-            while (!in.atEnd()) {
-                QString line = in.readLine();
-//                qDebug() << line;
-            }
-            file.close();
-        }
-    }
+//        }else{
+//            QTextStream in(&file);
+//            while (!in.atEnd()) {
+//                QString line = in.readLine();
+//             qDebug() << line;
+//            }
+//            file.close();
+//        }
+//    }
 
 
 }
@@ -52,6 +52,14 @@ void MainWindow::on_btnGenerateHumans_clicked(){
     }
 
 
+}
+
+// genera acciones para todos los humanos
+void MainWindow::on_btnSumOfActions_clicked(){
+
+    universe->world->sumOfActions();
+
+    qDebug() << "Se generan acciones";
 }
 
 

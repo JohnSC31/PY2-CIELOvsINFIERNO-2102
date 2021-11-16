@@ -24,6 +24,7 @@ public:
  // -------------------------------- DEFINICION DE LOS SLOTS PARA BOTONES ------------------------------------
 private slots:
     void on_btnGenerateHumans_clicked();
+    void on_btnSumOfActions_clicked();
 
 private:
     Ui::MainWindow *ui;
