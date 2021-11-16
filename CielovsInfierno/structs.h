@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QtGlobal>
+#include <QList>
 
 #include "helper.h"
 
@@ -18,6 +19,7 @@ struct Human; // persona
 struct HumanNode; // nodo de personas
 struct HumanList; // la lista de personas
 struct Actions; // Pecados y buenas acciones
+struct Action;
 
 struct PeopleTree; // arbol binario de busqueda
 struct TreeNode; // nodos del arbol
@@ -44,13 +46,16 @@ public:
     QString profession;
     QString email;
     QString dateBrith;
-    HumanNode * father; // para asignarle o saber si ya tiene un padre
-    Actions * actions;
+    Human * father; // para asignarle o saber si ya tiene un padre
+    QList<Action * > goods; // lista de buenas acciones
+    QList<Action * > sins; // lista de pecados
     HumanList * childList; // lista de hijos
 
 public:
     Human();
     Human(int _id, QString _name, QString _lastName, QString _country, QString belief, QString _profession, QString email);
+    void addSin(QString sin, int amount);
+    void addGood(QString good, int amount);
     void print();
 };
 
@@ -117,20 +122,18 @@ public:
 };
 
 // -------------------------------------- ESTRUCTURA PARA LAS BUENAS Y MALAS ACCIONES ----------------------------- //
-
 struct Actions{
 
 public:
     QString type = "";
     int goods[7] = {0,0,0,0,0,0,0}; // Contador de buenas acciones
     int sinsCommited[7] = {0,0,0,0,0,0,0}; // Contador de pecaados
-    //Estos QString sirven para imprimir los pecados e identificarlos en el programa
-    QString goodActions[7] = {"Castidad", "Ayuno", "Donación", "Diligencia", "Calma", "Solidaridad", "Humildad" };
-    QString sins[7] = {"Lujuria",  "Gula", "Avaricia", "Pereza", "Ira", "Envidia", "Soberbia"};
+
 
 public:
     //Procedimientos
     Actions(); // constructor
+    void addAction(QString actionName, int actionAmount);
     void addGoods();
     void addSins();
     void printGoods();
@@ -140,6 +143,18 @@ public:
 
 };
 
+
+struct Action{
+public:
+    QString action;
+    int amount;
+
+public:
+    Action(QString _action){
+        action = _action;
+        amount = 0;
+    }
+};
 
 // --------------------- ESTRUCTURAS DEL MUNDO -----------------
 struct TheWorld{
@@ -162,17 +177,27 @@ public:
     QString jobsList[20];
     bool usedNumbers[100000];
 
+    // pecados para los humanos
+    //Estos QString sirven para imprimir los pecados e identificarlos en el programa
+    QString goodActions[7] = {"Castidad", "Ayuno", "Donación", "Diligencia", "Calma", "Solidaridad", "Humildad" };
+    QString sinsActions[7] = {"Lujuria",  "Gula", "Avaricia", "Pereza", "Ira", "Envidia", "Soberbia"};
+
     //ui
 
 public:
     TheWorld();
     void generateHumans(int numHumans);
+    void initActions(Human * human);
     HumanNode * searchHuman(int humanId);
     void printData();
     bool validHumanId(); // si se puede crear un humano con ese id
-    void asignChilds(int childNum, HumanNode * humanNode);
+    void asignChilds(Human * human);
 
     void sumOfActions(); // suma de pecados y buenas acciones
+    void sumOfSins(Human * human); // recorrido y suma de cada pecado
+    void sumOfGoods(Human * human); // recorrido y suma de cada buena accion
+    void sumOfGood(Human * human, QString good, int amount, int generation); // suma de un buena accion a un humano
+    void sumOfSin(Human * human, QString sin, int amount, int generation); // suma de un pecado a un humano
     int genHumanId();
     bool validHumanId(int newHumanId);
 

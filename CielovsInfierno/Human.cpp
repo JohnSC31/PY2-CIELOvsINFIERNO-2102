@@ -22,10 +22,33 @@ Human::Human(int _id, QString _name, QString _lastName, QString _country, QStrin
     email = _email;
     // fecha en la que el humano fue creado
     dateBrith = QDateTime::currentDateTime().toString("aaaa-MM-dd hh: mm: ss dddd");
-    father = NULL; // todos nacen sin ser papas
-    actions = new Actions();
+    father = NULL; // todos nacen sin tener papa
     childList = new HumanList();
 }
+
+// se agrega al pecado la cantidad correspondiente
+void Human::addSin(QString sin, int amount){
+
+    for(int i = 0; i < sins.size(); i++){
+        if(sins.at(i)->action == sin){
+            sins.at(i)->amount += amount;
+            return;
+        }
+    }
+
+    qDebug() << "el pecado no existe";
+}
+
+// se agrega a la buena accion la cantidad correspondiente
+void Human::addGood(QString good, int amount){
+   for(int i = 0; i < goods.size(); i++){
+    if(goods.at(i)->action == good){
+        goods.at(i)->amount += amount;
+        return;
+    }
+}
+}
+
 
 // impresion en consola de la informacion del humano
 void Human::print(){

@@ -44,7 +44,11 @@ void TheWorld::generateHumans(int numHumans){
         profession = jobsList[rand() % jobsLength];
         email = "estudiante@estudiantec.cr";
         newHuman = new Human(id, name, lastName, country, belief, profession, email);
-        newHuman->print();
+
+        initActions(newHuman);
+
+        // asignacion de hijos
+        asignChilds(newHuman);
 
         if(peopleTree->root == NULL){
             // no hay arbol
@@ -54,7 +58,7 @@ void TheWorld::generateHumans(int numHumans){
             humanList->insertInOrder(newHuman, peopleTree->search(id, peopleTree->root));
         }
 
-    }
+    } // for human
 
     // determinar cuando se genera un arbol nuevo
     treeCounter += numHumans;
@@ -67,12 +71,76 @@ void TheWorld::generateHumans(int numHumans){
 
 }
 
-// Hace pecar y realizar buenas acciones a todos los humanos
-void TheWorld::sumOfActions(){
-    // recorre la lista de humanos llamando a una funcion que le sume a cada uno
-    // las buenas acciones y los pecados (con herencia)
+// inicializacion de las buenas acciones y pecados de los humanos con respecto a los del mundo
+void TheWorld::initActions(Human * human){
+    for(int i = 0; i < 7; i++){
+        human->goods.append(new Action(goodActions[i]));
+        human->sins.append(new Action(sinsActions[i]));
+    }
 }
 
+
+
+// Hace pecar y realizar buenas acciones a todos los humanos
+void TheWorld::sumOfActions(){
+    HumanNode * temp = humanList->firstNode;
+    while(temp != NULL){
+        // suma de pecados
+        sumOfSins(temp->human);
+        // suma de buenas acciones
+        sumOfGoods(temp->human);
+
+        temp = temp->next;
+    }
+}
+
+// la suma de pecados
+void TheWorld::sumOfSins(Human * human){
+    for(int i = 0; i < 7; i++){
+        sumOfSin(human, sinsActions[i], rand() % 101, 0);
+    }
+}
+
+// suma de buenas acciones
+void TheWorld::sumOfGoods(Human * human){
+    for(int i = 0; i < 7; i++){
+        sumOfGood(human, goodActions[i], rand() % 101, 0);
+    }
+}
+
+
+// la suma de una accion en especifico y su herencia
+void TheWorld::sumOfGood(Human * human, QString good, int amount, int generation){
+    human->addGood(good, amount);
+
+    if(generation > 2){
+        return;
+    }else{
+        // se realiza la herencia
+        HumanNode * tempChild = human->childList->firstNode;
+        while(tempChild != NULL){
+            sumOfSin(tempChild->human, good, (amount / 2), generation + 1);
+        }
+        return;
+    }
+}
+
+// la suma de una accion en especifico y su herencia
+// mediante una llamada recursiva le hereda la mitad de su pecado a sus hijos y el 25% a sus nietos
+void TheWorld::sumOfSin(Human * human, QString sin, int amount, int generation){
+    human->addSin(sin, amount);
+
+    if(generation > 2){
+        return;
+    }else{
+        // se realiza la herencia
+        HumanNode * tempChild = human->childList->firstNode;
+        while(tempChild != NULL){
+            sumOfSin(tempChild->human, sin, (amount / 2), generation + 1);
+        }
+        return;
+    }
+}
 
 // genera de forma aleatoria un numero como nuevo id y verifica y ya esta usado
 // si esta disponible lo coloca ocupado y lo retorna
@@ -98,6 +166,34 @@ bool TheWorld::validHumanId(int newHumanId){
 
     usedNumbers[newHumanId] = true; // se ocupa el espacio
     return true; // retorna que esta asignado
+}
+
+
+// asigna hijos de forma aleatoria de la lista de humanos
+void TheWorld::asignChilds(Human * human){
+    int numChilds = rand() % 9; // random de 0 a 8
+
+    HumanNode * temp = humanList->firstNode;
+
+    while(temp != NULL){
+
+        if(numChilds == 0){
+            break;
+            // se sale cuando ya haya asignado la cantidad de hijo correspondientes
+            // o no haya hijos que asignar
+        }
+
+        if(human->country == temp->human->country && human->lastName == temp->human->lastName
+                && temp->human->father == NULL){
+            human->childList->insertHuman(temp->human); // al papa se el agrega un hijo a su lista de hijos
+            temp->human->father = human; // al hijo se le agrega un papa
+            numChilds--;
+        }
+
+
+        temp = temp->next;
+    }
+
 }
 
 
