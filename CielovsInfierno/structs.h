@@ -8,6 +8,8 @@
 #include <QFile>
 #include <QtGlobal>
 
+#include "helper.h"
+
 // Definicion de las todas las estructuras para el proyecto
 
 
@@ -49,6 +51,7 @@ public:
 public:
     Human();
     Human(int _id, QString _name, QString _lastName, QString _country, QString belief, QString _profession, QString email);
+    void print();
 };
 
 struct HumanNode{
@@ -169,8 +172,7 @@ public:
     bool validHumanId(); // si se puede crear un humano con ese id
     void asignChilds(int childNum, HumanNode * humanNode);
 
-    // suma de pecados y buenas acciones
-    void sumOfActions();
+    void sumOfActions(); // suma de pecados y buenas acciones
     int genHumanId();
     bool validHumanId(int newHumanId);
 

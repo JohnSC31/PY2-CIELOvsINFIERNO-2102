@@ -17,3 +17,18 @@ bool validNumber(QString strNumber){
         return false;
     }
 }
+
+
+// coloca solo la primera letra en mayuscula y el resto en minusculas
+QString capitalize(QString str){
+    QString newStr;
+    for(int i = 0; i < str.length(); i++){
+        if(i == 0){
+            newStr.append(str.at(i).toUpper());
+        }else{
+            newStr.append(str.at(i).toLower());
+        }
+    }
+
+    return newStr;
+}

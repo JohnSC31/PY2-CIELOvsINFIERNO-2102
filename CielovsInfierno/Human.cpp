@@ -26,3 +26,11 @@ Human::Human(int _id, QString _name, QString _lastName, QString _country, QStrin
     actions = new Actions();
     childList = new HumanList();
 }
+
+// impresion en consola de la informacion del humano
+void Human::print(){
+    QString str = "Humano:";
+    str += name + " " + lastName + " pais:" + country;
+
+    qDebug() << str.toUtf8();
+}

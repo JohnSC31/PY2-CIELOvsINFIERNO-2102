@@ -44,12 +44,13 @@ void TheWorld::generateHumans(int numHumans){
         profession = jobsList[rand() % jobsLength];
         email = "estudiante@estudiantec.cr";
         newHuman = new Human(id, name, lastName, country, belief, profession, email);
+        newHuman->print();
+
         if(peopleTree->root == NULL){
             // no hay arbol
             humanList->insertHuman(newHuman);
         }else{
             // baja por el arbol y lo inserta
-            qDebug () << "insercion con arbol ";
             humanList->insertInOrder(newHuman, peopleTree->search(id, peopleTree->root));
         }
 
@@ -113,70 +114,83 @@ void TheWorld::initHumanIdList(){
 void TheWorld::initNamesList(){
     QString filePath = QDir::currentPath() + "/../Names.txt";
     QFile file(filePath);
-    QTextStream in(&file);
-    int i = 0;
-    while (!in.atEnd() && i < namesLength) {
-        QString line = in.readLine();
-        namesList[i] = line;
-        i++;
+    if(file.open(QIODevice::ReadOnly)){
+        QTextStream in(&file);
+        int i = 0;
+
+        while (!in.atEnd() && i < namesLength) {
+            QString line = in.readLine();
+            namesList[i] = line;
+            i++;
+        }
+
+        file.close();
     }
-    file.close();
+
 }
 
 void TheWorld::initLastNamesList(){
     QString filePath = QDir::currentPath() + "/../Lastnames.txt";
     QFile file(filePath);
-    QTextStream in(&file);
-    int i = 0;
-    while (!in.atEnd() && i < namesLength) {
-        QString line = in.readLine();
-        lastNamesList[i] = line;
-        qDebug() << line;
-        i++;
+    if(file.open(QIODevice::ReadOnly)){
+        QTextStream in(&file);
+        int i = 0;
+        while (!in.atEnd() && i < namesLength) {
+            QString line = capitalize(in.readLine());
+            lastNamesList[i] = line;
+            i++;
+        }
+        file.close();
     }
-    file.close();
+
 }
 
 void TheWorld::initBeliefsList(){
     QString filePath = QDir::currentPath() + "/../Beliefs.txt";
     QFile file(filePath);
-    QTextStream in(&file);
-    int i = 0;
-    while (!in.atEnd() && i < beliefLength) {
-        QString line = in.readLine();
-        beliefsList[i] = line;
-        qDebug() << line;
-        i++;
+    if(file.open(QIODevice::ReadOnly)){
+        QTextStream in(&file);
+        int i = 0;
+        while (!in.atEnd() && i < beliefLength) {
+            QString line = in.readLine();
+            beliefsList[i] = line;
+            i++;
+        }
+        file.close();
     }
-    file.close();
+
 }
 
 void TheWorld::initCountriesList(){
     QString filePath = QDir::currentPath() + "/../Countries.txt";
     QFile file(filePath);
-    QTextStream in(&file);
-    int i = 0;
-    while (!in.atEnd() && i < countriesLength) {
-        QString line = in.readLine();
-        countriesList[i] = line;
-        qDebug() << line;
-        i++;
+    if(file.open(QIODevice::ReadOnly)){
+        QTextStream in(&file);
+        int i = 0;
+        while (!in.atEnd() && i < countriesLength) {
+            QString line = in.readLine();
+            countriesList[i] = line;
+            i++;
+        }
+        file.close();
     }
-    file.close();
+
 }
 
 void TheWorld::initJobsList(){
     QString filePath = QDir::currentPath() + "/../Works.txt";
     QFile file(filePath);
-    QTextStream in(&file);
-    int i = 0;
-    while (!in.atEnd() && i < jobsLength) {
-        QString line = in.readLine();
-        jobsList[i] = line;
-        qDebug() << line;
-        i++;
+    if(file.open(QIODevice::ReadOnly)){
+        QTextStream in(&file);
+        int i = 0;
+        while (!in.atEnd() && i < jobsLength) {
+            QString line = in.readLine();
+            jobsList[i] = line;
+            i++;
+        }
+        file.close();
     }
-    file.close();
+
 }
 
 
