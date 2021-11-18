@@ -9,6 +9,9 @@
 #include <QtGlobal>
 #include <QList>
 
+// ui
+#include <QLabel>
+
 #include "helper.h"
 
 // Definicion de las todas las estructuras para el proyecto
@@ -56,6 +59,7 @@ public:
     Human(int _id, QString _name, QString _lastName, QString _country, QString belief, QString _profession, QString email);
     void addSin(QString sin, int amount);
     void addGood(QString good, int amount);
+    QString toString();
     void print();
 };
 
@@ -84,6 +88,7 @@ public:
     void insertHuman(Human * newHuman); // sin arbol
     void insertInOrder(Human * newHuman, HumanNode * refNode); // en orden a partir de nodo de referencia
     HumanNode * getMidHuman(); // obtiene el nodo en el medio de la lista
+    HumanNode * moveToNode(int move, bool right, HumanNode * refNode);
     // inserciones especiales
     void insertBeginning(Human * newHuman);
     void insertEnd(Human * newHuman);
@@ -116,6 +121,7 @@ public:
 public:
     PeopleTree();
     PeopleTree(HumanList * humanList);
+    void generateTree(HumanList * list, HumanNode * refNode, int moveNode, int nodes, int totalAmount);
     void insert(HumanNode * _humanNode);
     int getNodeTreeAmount(int lengthList);
     TreeNode * insert(int _personId, HumanNode * _personeNode, TreeNode * node);
@@ -125,8 +131,10 @@ public:
     int auxLevels(TreeNode * node);
     int nodesAmount();
     int auxNodesAmount(TreeNode * node);
-    QList<Human * > * getLastLvlHumans();
-    void auxGetLastLvlHumans(TreeNode * node, QList<Human * > * humanList);
+    QString getLastLvlHumans();
+    QString auxGetLastLvlHumans(TreeNode * node);
+    void printPreOrden(TreeNode * node);
+    int getLeafAmount(TreeNode * node);
 };
 
 // -------------------------------------- ESTRUCTURA PARA LAS BUENAS Y MALAS ACCIONES ----------------------------- //
@@ -193,6 +201,8 @@ public:
     QString sinsActions[7] = {"Lujuria",  "Gula", "Avaricia", "Pereza", "Ira", "Envidia", "Soberbia"};
 
     //ui
+    QLabel * lblTreeData;
+    QLabel * lblLastLvlTree;
 
 public:
     TheWorld();
@@ -210,7 +220,7 @@ public:
     void sumOfSin(Human * human, QString sin, int amount, int generation); // suma de un pecado a un humano
     int genHumanId();
     bool validHumanId(int newHumanId);
-
+    void printPeopleTreeData();
     // inicializacion para los datos para la generacion de humanos
     void initHumanIdList();
     void initNamesList();
