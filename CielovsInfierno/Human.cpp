@@ -50,6 +50,10 @@ void Human::addGood(QString good, int amount){
 }
 
 
+QString Human::toString(){
+    return QString::number(id) + " " + name + " " + lastName + " - " + country;
+}
+
 // impresion en consola de la informacion del humano
 void Human::print(){
     QString str = "Humano:";

@@ -14,7 +14,7 @@ PeopleTree::PeopleTree(HumanList * humanList){
     int nodeAmount = getNodeTreeAmount(humanList->length); // iteraciones
     HumanNode * rootHumanNode = humanList->getMidHuman(); // debe ser el que esta en la mitad
     root = new TreeNode(rootHumanNode, rootHumanNode->human->id);
-    int insertJump = humanList->length / nodeAmount;
+    int insertJump = nodeAmount > 0 ? humanList->length / nodeAmount : 0;
 
     HumanNode * pastTmp = rootHumanNode; // inician en el medio
     HumanNode * nextTmp = rootHumanNode; // inician en el medio
@@ -61,7 +61,8 @@ int PeopleTree::getNodeTreeAmount(int lengthList){
     }
 
     // retorna la potencia de 2 mayor mas cercana al uno por ciento
-    return pow(2, powCounter);
+    // se le resta uno ya que se inserta la raiz antes
+    return pow(2, powCounter) - 1;
 }
 
 
@@ -117,7 +118,7 @@ bool PeopleTree::isLeaf(TreeNode *node){
 
 // retorna la cantidad de niveles del arbol
 int PeopleTree::levels(){
-    return auxLevels(root);
+    return auxLevels(root) + 1;
 }
 
 int PeopleTree::auxLevels(TreeNode * node){
@@ -142,20 +143,18 @@ int PeopleTree::auxNodesAmount(TreeNode * node){
 }
 
 // retona una qlist de los  humanos que estan en el ultimo nivel del arbol
-QList<Human * > * PeopleTree::getLastLvlHumans(){
-    QList<Human * > * lastLvlHumans = new QList<Human * >();
-    auxGetLastLvlHumans(root, lastLvlHumans);
-    return lastLvlHumans;
+QString PeopleTree::getLastLvlHumans(){
+
+    return auxGetLastLvlHumans(root);
 }
 
-void PeopleTree::auxGetLastLvlHumans(TreeNode * node, QList<Human * > * humanList){
-    if(node != NULL){
-        if(isLeaf(node)){
-            humanList->append(node->humanNode->human);
-        }else{
-            auxGetLastLvlHumans(node->leftChild, humanList);
-            auxGetLastLvlHumans(node->rightChild, humanList);
-        }
-    }
+QString PeopleTree::auxGetLastLvlHumans(TreeNode * node){
+        if (node == NULL){
+            return "";
+       }else if (isLeaf(node)){
+            return node->humanNode->human->toString() + "\n";
+       }else{
+           return auxGetLastLvlHumans(node->leftChild) + auxGetLastLvlHumans(node->rightChild);
+       }
 }
 

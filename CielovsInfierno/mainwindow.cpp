@@ -7,31 +7,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // pruebas para la lectura de archivos
-//    QString filePath = QDir::currentPath() + "/../Names.txt";
-//    QFile file(filePath);
-//    QString errMsg;
-//    QFileDevice::FileError err = QFileDevice::NoError;
-//    if (!file.exists()) {
-//        qDebug() << "No existe el archivox2";
-//    }else{
-//        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
-//            qDebug() << "Error al abrir el archivo";
-//            errMsg = file.errorString();
-//            err = file.error();
-//            qDebug() << errMsg;
+    // detectar el cambio de los comboboxs
+    //connect(ui->cmbTrays, SIGNAL(currentIndexChanged(int)), this, SLOT(on_cmbTrays_change(int)));
 
-//        }else{
-//            QTextStream in(&file);
-//            while (!in.atEnd()) {
-//                QString line = in.readLine();
-//             qDebug() << line;
-//            }
-//            file.close();
-//        }
-//    }
-
-
+    // Asignacion de los componentes graficos
+    // el mundo
+    universe->world->lblTreeData = ui->lblTreeData;
+    universe->world->lblLastLvlTree = ui->lblLastLvlTree;
 }
 
 MainWindow::~MainWindow()
