@@ -211,7 +211,7 @@ HumanNode * TheWorld::searchHuman(int humanId){
 
 
 
-// funciones para llenar los arreglos de datos para la generacion de humanos
+// ------------ funciones para llenar los arreglos de datos para la generacion de humanos ---------------------------
 void TheWorld::initHumanIdList(){
     // el minimo son 10000, pero el max son 100 000
     for(int i = 0; i < 100000; i++){

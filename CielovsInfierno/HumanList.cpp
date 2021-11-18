@@ -135,3 +135,8 @@ bool HumanList::isEmpty(){
     return firstNode == NULL;
 }
 
+// cantidad de humanos totales de la lista
+int HumanList::getLength(){
+    return length;
+}
+

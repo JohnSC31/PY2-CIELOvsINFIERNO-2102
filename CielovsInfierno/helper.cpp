@@ -32,3 +32,9 @@ QString capitalize(QString str){
 
     return newStr;
 }
+
+
+// retorna el mayor entre 2 numeros enteros
+int maxInt(int a, int b){
+    return a > b ? a : b;
+}
