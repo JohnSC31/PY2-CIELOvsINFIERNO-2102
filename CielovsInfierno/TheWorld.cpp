@@ -70,6 +70,7 @@ void TheWorld::generateHumans(int numHumans){
         qDebug () << "se genera un arbol ";
         peopleTree = new PeopleTree(humanList);
         treeCounter = 0;
+        printPeopleTreeData(); // se actualizan los datos en la pantalla cada que se crea un arbol
     }
 
 }
@@ -210,6 +211,18 @@ HumanNode * TheWorld::searchHuman(int humanId){
         return humanList->searchHuman(humanId, humanList->firstNode);
     }
 
+}
+
+// para imprimir los datos del arbol en la pantalla
+void TheWorld::printPeopleTreeData(){
+    QString str = "Niveles: " + QString::number(peopleTree->levels()) + " \n";
+    str += "Nodos: " + QString::number(peopleTree->nodesAmount()) + "\n";
+    str += "Humanos: " + QString::number(humanList->getLength());
+
+    lblTreeData->setText(str);
+
+    // se imprimen los datos de los humanos en el ultimo nivel del arbol
+    lblLastLvlTree->setText(peopleTree->getLastLvlHumans());
 }
 
 

@@ -18,7 +18,7 @@ public:
     // ------- CREACION DE LA ESTRUCTURA PRINCIPAL ---------------
     Universe * universe = new Universe();
 
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget * parent = nullptr);
     ~MainWindow();
 
  // -------------------------------- DEFINICION DE LOS SLOTS PARA BOTONES ------------------------------------
