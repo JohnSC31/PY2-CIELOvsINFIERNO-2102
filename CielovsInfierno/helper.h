@@ -10,4 +10,5 @@ QString capitalize(QString str);
 
 int maxInt(int a, int b);
 
+
 #endif // HELPER_H

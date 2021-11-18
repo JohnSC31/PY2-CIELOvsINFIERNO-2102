@@ -33,6 +33,32 @@ HumanNode * HumanList::getMidHuman(){
     }
     return tmp; // retorna el que esta relativamente en el medio
 }
+
+// a partir de un nodo de referencia un numero y direccion se mueve el numero indicado y retorna el nodo en el que quedo
+// retornara nulo si se sale de la lista
+HumanNode * HumanList::moveToNode(int move, bool right, HumanNode * refNode){
+    HumanNode * tmp = refNode;
+    for(int i = 0; i < move; i++){
+        if(right){
+            // se mueve a su derecha
+            if(tmp->next != NULL){
+                tmp = tmp->next;
+            }else{
+                return NULL; // llega al final de la lista
+            }
+        }else{
+            // se mueve a su izquierda
+            if(tmp->past != NULL){
+                 tmp = tmp->past;
+            }else{
+                return NULL; // llega al inicio de la lista
+            }
+        }
+    }
+
+    return tmp;
+
+}
 \
 // busca la posicion en la que se debe insertar el humano con el id cuando hay muchos nodos
 void HumanList::insertInOrder(Human * newHuman, HumanNode * refNode){

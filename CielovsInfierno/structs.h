@@ -88,6 +88,7 @@ public:
     void insertHuman(Human * newHuman); // sin arbol
     void insertInOrder(Human * newHuman, HumanNode * refNode); // en orden a partir de nodo de referencia
     HumanNode * getMidHuman(); // obtiene el nodo en el medio de la lista
+    HumanNode * moveToNode(int move, bool right, HumanNode * refNode);
     // inserciones especiales
     void insertBeginning(Human * newHuman);
     void insertEnd(Human * newHuman);
@@ -120,6 +121,7 @@ public:
 public:
     PeopleTree();
     PeopleTree(HumanList * humanList);
+    void generateTree(HumanList * list, HumanNode * refNode, int moveNode, int nodes, int totalAmount);
     void insert(HumanNode * _humanNode);
     int getNodeTreeAmount(int lengthList);
     TreeNode * insert(int _personId, HumanNode * _personeNode, TreeNode * node);
@@ -131,6 +133,8 @@ public:
     int auxNodesAmount(TreeNode * node);
     QString getLastLvlHumans();
     QString auxGetLastLvlHumans(TreeNode * node);
+    void printPreOrden(TreeNode * node);
+    int getLeafAmount(TreeNode * node);
 };
 
 // -------------------------------------- ESTRUCTURA PARA LAS BUENAS Y MALAS ACCIONES ----------------------------- //
