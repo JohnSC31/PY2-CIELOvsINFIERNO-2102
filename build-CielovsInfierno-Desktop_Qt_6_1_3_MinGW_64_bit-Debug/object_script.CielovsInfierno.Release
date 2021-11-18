@@ -1,0 +1,10 @@
+release/Actions.o
+release/Human.o
+release/HumanList.o
+release/PeopleTree.o
+release/TheWorld.o
+release/Universe.o
+release/helper.o
+release/main.o
+release/mainwindow.o
+release/moc_mainwindow.o

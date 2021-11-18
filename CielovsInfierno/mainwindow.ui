@@ -35,20 +35,20 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="GenerarMundo">
+   <widget class="QPushButton" name="btnGenerateHumans">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>90</y>
+      <y>110</y>
       <width>171</width>
-      <height>51</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Generar Mundo</string>
+     <string>Generar Humanos</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="GenerarPecados">
+   <widget class="QPushButton" name="btnSumOfActions">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -58,7 +58,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Generar Pecados</string>
+     <string>Suma de acciones</string>
     </property>
    </widget>
    <widget class="QPushButton" name="GenerarBuenasAcciones">
@@ -152,6 +152,16 @@
      <string>Consultar Pecados</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="inpNumHumans">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>90</y>
+      <width>171</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -159,7 +169,7 @@
      <x>0</x>
      <y>0</y>
      <width>1323</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

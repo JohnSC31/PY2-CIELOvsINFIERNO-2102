@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -25,8 +26,8 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QLabel *label;
-    QPushButton *GenerarMundo;
-    QPushButton *GenerarPecados;
+    QPushButton *btnGenerateHumans;
+    QPushButton *btnSumOfActions;
     QPushButton *GenerarBuenasAcciones;
     QPushButton *ConsultarMiembrosDeInfierno;
     QPushButton *IniciarSalvacion;
@@ -34,6 +35,7 @@ public:
     QPushButton *ConsultarFamilias;
     QPushButton *ConsultarBuenasAcciones;
     QPushButton *ConsultarPecados;
+    QLineEdit *inpNumHumans;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -51,12 +53,12 @@ public:
         font.setPointSize(10);
         label->setFont(font);
         label->setAlignment(Qt::AlignCenter);
-        GenerarMundo = new QPushButton(centralwidget);
-        GenerarMundo->setObjectName(QString::fromUtf8("GenerarMundo"));
-        GenerarMundo->setGeometry(QRect(50, 90, 171, 51));
-        GenerarPecados = new QPushButton(centralwidget);
-        GenerarPecados->setObjectName(QString::fromUtf8("GenerarPecados"));
-        GenerarPecados->setGeometry(QRect(50, 180, 171, 51));
+        btnGenerateHumans = new QPushButton(centralwidget);
+        btnGenerateHumans->setObjectName(QString::fromUtf8("btnGenerateHumans"));
+        btnGenerateHumans->setGeometry(QRect(50, 110, 171, 31));
+        btnSumOfActions = new QPushButton(centralwidget);
+        btnSumOfActions->setObjectName(QString::fromUtf8("btnSumOfActions"));
+        btnSumOfActions->setGeometry(QRect(50, 180, 171, 51));
         GenerarBuenasAcciones = new QPushButton(centralwidget);
         GenerarBuenasAcciones->setObjectName(QString::fromUtf8("GenerarBuenasAcciones"));
         GenerarBuenasAcciones->setGeometry(QRect(50, 270, 171, 51));
@@ -78,10 +80,13 @@ public:
         ConsultarPecados = new QPushButton(centralwidget);
         ConsultarPecados->setObjectName(QString::fromUtf8("ConsultarPecados"));
         ConsultarPecados->setGeometry(QRect(270, 180, 171, 51));
+        inpNumHumans = new QLineEdit(centralwidget);
+        inpNumHumans->setObjectName(QString::fromUtf8("inpNumHumans"));
+        inpNumHumans->setGeometry(QRect(50, 90, 171, 20));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1323, 25));
+        menubar->setGeometry(QRect(0, 0, 1323, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -96,8 +101,8 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Cielo vs Infierno \360\237\230\210", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Cielo vs Infierno \360\237\221\271", nullptr));
-        GenerarMundo->setText(QCoreApplication::translate("MainWindow", "Generar Mundo", nullptr));
-        GenerarPecados->setText(QCoreApplication::translate("MainWindow", "Generar Pecados", nullptr));
+        btnGenerateHumans->setText(QCoreApplication::translate("MainWindow", "Generar Humanos", nullptr));
+        btnSumOfActions->setText(QCoreApplication::translate("MainWindow", "Suma de acciones", nullptr));
         GenerarBuenasAcciones->setText(QCoreApplication::translate("MainWindow", "Generar Buenas Acciones", nullptr));
         ConsultarMiembrosDeInfierno->setText(QCoreApplication::translate("MainWindow", "Miembros del infierno", nullptr));
         IniciarSalvacion->setText(QCoreApplication::translate("MainWindow", "Iniciar salvaci\303\263n", nullptr));
