@@ -175,6 +175,8 @@ public:
 // --------------------- ESTRUCTURAS DEL MUNDO -----------------
 struct TheWorld{
 public:
+    Human * humans[10000];
+    int indexHumansArray = 0;
     HumanList * humanList; // lista de humanos doblemente enlazada
     PeopleTree * peopleTree; // arbol de personas
     int treeCounter; // contador actual hasta llegar a generar un arbol
