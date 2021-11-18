@@ -113,3 +113,49 @@ HumanNode * PeopleTree::search(int humanId, TreeNode * node)
 bool PeopleTree::isLeaf(TreeNode *node){
     return node->leftChild == NULL && node->rightChild == NULL;
 }
+
+
+// retorna la cantidad de niveles del arbol
+int PeopleTree::levels(){
+    return auxLevels(root);
+}
+
+int PeopleTree::auxLevels(TreeNode * node){
+    if (node == NULL){
+        return -1;
+    }else{
+         return 1 + maxInt(auxLevels(node->leftChild),auxLevels(node->rightChild));
+
+    }
+}
+
+// retorna la cantidad de nodos que tiene el arbol
+int PeopleTree::nodesAmount(){
+    return auxNodesAmount(root);
+}
+
+int PeopleTree::auxNodesAmount(TreeNode * node){
+    if (node == NULL)
+            return 0;
+        else
+             return 1 + auxNodesAmount(node->leftChild) + auxNodesAmount(node->rightChild);
+}
+
+// retona una qlist de los  humanos que estan en el ultimo nivel del arbol
+QList<Human * > * PeopleTree::getLastLvlHumans(){
+    QList<Human * > * lastLvlHumans = new QList<Human * >();
+    auxGetLastLvlHumans(root, lastLvlHumans);
+    return lastLvlHumans;
+}
+
+void PeopleTree::auxGetLastLvlHumans(TreeNode * node, QList<Human * > * humanList){
+    if(node != NULL){
+        if(isLeaf(node)){
+            humanList->append(node->humanNode->human);
+        }else{
+            auxGetLastLvlHumans(node->leftChild, humanList);
+            auxGetLastLvlHumans(node->rightChild, humanList);
+        }
+    }
+}
+
