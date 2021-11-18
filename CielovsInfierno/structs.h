@@ -24,7 +24,7 @@ struct TheWorld;
 // condenación
 
 
-struct Demon;
+struct Demons;
 struct FamilyNode;
 struct DemonFamilies; // heap donde se almacenan las familias
 
@@ -159,12 +159,8 @@ public:
 
 //Condenación
 
-struct Demon{
-    QString name;
-    QString linkedSin;
-    Actions * actions;
-
-    QString searchLinkedSin();
+struct Demons{
+    QString demons[7] = {"Lucifer", "Belcebú", "Satán", "Abadón", "Mammón", "Belfegor", "Asmodeo"};
 };
 
 
