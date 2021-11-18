@@ -1,5 +1,8 @@
 debug/Actions.o
+<<<<<<< HEAD
 debug/Demon.o
+=======
+>>>>>>> Development
 debug/Human.o
 debug/HumanList.o
 debug/PeopleTree.o

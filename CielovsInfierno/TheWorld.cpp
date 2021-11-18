@@ -49,6 +49,9 @@ void TheWorld::generateHumans(int numHumans){
 
         // asignacion de hijos
         asignChilds(newHuman);
+        humans[indexHumansArray] = newHuman;
+        indexHumansArray++;
+        qDebug() << "Humano agregado al array. ";
 
         if(peopleTree->root == NULL){
             // no hay arbol
@@ -196,10 +199,22 @@ void TheWorld::asignChilds(Human * human){
 
 }
 
+// busca y retona el humano o nullo si no lo encontro
+HumanNode * TheWorld::searchHuman(int humanId){
+    if(peopleTree->root != NULL){
+        // se baja por el arbol y lo busca en la lista
+        // se busca en la human list
+        return humanList->searchHuman(humanId, peopleTree->search(humanId, peopleTree->root));
+    }else{
+        // lo busca desde el inicio de la lista sin nodo de referencia
+        return humanList->searchHuman(humanId, humanList->firstNode);
+    }
+
+}
 
 
 
-// funciones para llenar los arreglos de datos para la generacion de humanos
+// ------------ funciones para llenar los arreglos de datos para la generacion de humanos ---------------------------
 void TheWorld::initHumanIdList(){
     // el minimo son 10000, pero el max son 100 000
     for(int i = 0; i < 100000; i++){

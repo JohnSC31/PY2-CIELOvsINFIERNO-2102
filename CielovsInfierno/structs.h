@@ -91,7 +91,9 @@ public:
     void insertBeginning(Human * newHuman);
     void insertEnd(Human * newHuman);
     void insertMiddle(Human * newHuman, HumanNode * refNode);
+    HumanNode * searchHuman(int humanId, HumanNode * refNode);
     bool isEmpty();
+    int getLength();
 };
 
 // ----------------------- ESTRUCTURAS PARA EL ARBOL DE HUMANOS -----------
@@ -122,6 +124,12 @@ public:
     TreeNode * insert(int _personId, HumanNode * _personeNode, TreeNode * node);
     HumanNode * search(int personId, TreeNode * node);
     bool isLeaf(TreeNode * node);
+    int levels();
+    int auxLevels(TreeNode * node);
+    int nodesAmount();
+    int auxNodesAmount(TreeNode * node);
+    QList<Human * > * getLastLvlHumans();
+    void auxGetLastLvlHumans(TreeNode * node, QList<Human * > * humanList);
 };
 
 // -------------------------------------- ESTRUCTURA PARA LAS BUENAS Y MALAS ACCIONES ----------------------------- //
@@ -162,6 +170,8 @@ public:
 // --------------------- ESTRUCTURAS DEL MUNDO -----------------
 struct TheWorld{
 public:
+    Human * humans[10000];
+    int indexHumansArray = 0;
     HumanList * humanList; // lista de humanos doblemente enlazada
     PeopleTree * peopleTree; // arbol de personas
     int treeCounter; // contador actual hasta llegar a generar un arbol
