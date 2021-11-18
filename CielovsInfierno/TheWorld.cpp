@@ -49,6 +49,9 @@ void TheWorld::generateHumans(int numHumans){
 
         // asignacion de hijos
         asignChilds(newHuman);
+        humans[indexHumansArray] = newHuman;
+        indexHumansArray++;
+        qDebug() << "Humano agregado al array. ";
 
         if(peopleTree->root == NULL){
             // no hay arbol
