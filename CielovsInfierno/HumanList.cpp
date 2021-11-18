@@ -100,7 +100,35 @@ void HumanList::insertMiddle(Human * newHuman, HumanNode * refNode){
 
 }
 
+// busca un humano
+HumanNode * HumanList::searchHuman(int humanId, HumanNode * refNode){
+    while(true){
+        if(refNode->human->id == humanId){
+            // lo encuentra
+            return refNode;
+        }else if(refNode->human->id < humanId){
+            if(refNode->next == NULL){
+                // llega al final de la lista
+                return NULL;
 
+            }else if(refNode->next->human->id > humanId){
+                // deberia esta en el medio de dos nodos
+                return NULL;
+
+            }else{
+                // se mueve a la derecha
+                refNode = refNode->next;
+            }
+        }else if(refNode->past == NULL){
+            //llega al inicio de la lista
+            return NULL;
+
+        }else{
+            // se mueve a la izquierda
+            refNode = refNode->past;
+        }
+    }
+}
 
 // obtiene si la list esta vacia
 bool HumanList::isEmpty(){

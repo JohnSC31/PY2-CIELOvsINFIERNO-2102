@@ -196,6 +196,18 @@ void TheWorld::asignChilds(Human * human){
 
 }
 
+// busca y retona el humano o nullo si no lo encontro
+HumanNode * TheWorld::searchHuman(int humanId){
+    if(peopleTree->root != NULL){
+        // se baja por el arbol y lo busca en la lista
+        // se busca en la human list
+        return humanList->searchHuman(humanId, peopleTree->search(humanId, peopleTree->root));
+    }else{
+        // lo busca desde el inicio de la lista sin nodo de referencia
+        return humanList->searchHuman(humanId, humanList->firstNode);
+    }
+
+}
 
 
 

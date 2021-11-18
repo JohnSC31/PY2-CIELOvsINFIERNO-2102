@@ -88,6 +88,7 @@ public:
     void insertBeginning(Human * newHuman);
     void insertEnd(Human * newHuman);
     void insertMiddle(Human * newHuman, HumanNode * refNode);
+    HumanNode * searchHuman(int humanId, HumanNode * refNode);
     bool isEmpty();
 };
 
