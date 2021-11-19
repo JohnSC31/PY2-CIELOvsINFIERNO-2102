@@ -36,12 +36,9 @@ public:
     QPushButton *ConsultarBuenasAcciones;
     QPushButton *ConsultarPecados;
     QLineEdit *inpNumHumans;
-<<<<<<< HEAD
-=======
-    QLabel *label_2;
+    QLabel *lblTree;
     QLabel *lblTreeData;
-    QLabel *lblLastLvlHumans;
->>>>>>> Development
+    QLabel *lblLastLvlTree;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -64,54 +61,42 @@ public:
         btnGenerateHumans->setGeometry(QRect(50, 110, 171, 31));
         btnSumOfActions = new QPushButton(centralwidget);
         btnSumOfActions->setObjectName(QString::fromUtf8("btnSumOfActions"));
-<<<<<<< HEAD
-        btnSumOfActions->setGeometry(QRect(50, 180, 171, 51));
-=======
         btnSumOfActions->setGeometry(QRect(50, 150, 171, 31));
->>>>>>> Development
         GenerarBuenasAcciones = new QPushButton(centralwidget);
         GenerarBuenasAcciones->setObjectName(QString::fromUtf8("GenerarBuenasAcciones"));
-        GenerarBuenasAcciones->setGeometry(QRect(280, 460, 171, 51));
+        GenerarBuenasAcciones->setGeometry(QRect(370, 480, 171, 51));
         ConsultarMiembrosDeInfierno = new QPushButton(centralwidget);
         ConsultarMiembrosDeInfierno->setObjectName(QString::fromUtf8("ConsultarMiembrosDeInfierno"));
-        ConsultarMiembrosDeInfierno->setGeometry(QRect(280, 280, 171, 51));
+        ConsultarMiembrosDeInfierno->setGeometry(QRect(370, 300, 171, 51));
         IniciarSalvacion = new QPushButton(centralwidget);
         IniciarSalvacion->setObjectName(QString::fromUtf8("IniciarSalvacion"));
-        IniciarSalvacion->setGeometry(QRect(280, 340, 171, 51));
+        IniciarSalvacion->setGeometry(QRect(370, 360, 171, 51));
         MostrarGanador = new QPushButton(centralwidget);
         MostrarGanador->setObjectName(QString::fromUtf8("MostrarGanador"));
-        MostrarGanador->setGeometry(QRect(280, 400, 171, 51));
+        MostrarGanador->setGeometry(QRect(370, 420, 171, 51));
         ConsultarFamilias = new QPushButton(centralwidget);
         ConsultarFamilias->setObjectName(QString::fromUtf8("ConsultarFamilias"));
-        ConsultarFamilias->setGeometry(QRect(280, 160, 171, 51));
+        ConsultarFamilias->setGeometry(QRect(370, 180, 171, 51));
         ConsultarBuenasAcciones = new QPushButton(centralwidget);
         ConsultarBuenasAcciones->setObjectName(QString::fromUtf8("ConsultarBuenasAcciones"));
-        ConsultarBuenasAcciones->setGeometry(QRect(280, 220, 171, 51));
+        ConsultarBuenasAcciones->setGeometry(QRect(370, 240, 171, 51));
         ConsultarPecados = new QPushButton(centralwidget);
         ConsultarPecados->setObjectName(QString::fromUtf8("ConsultarPecados"));
-<<<<<<< HEAD
-        ConsultarPecados->setGeometry(QRect(270, 180, 171, 51));
+        ConsultarPecados->setGeometry(QRect(370, 110, 171, 51));
         inpNumHumans = new QLineEdit(centralwidget);
         inpNumHumans->setObjectName(QString::fromUtf8("inpNumHumans"));
         inpNumHumans->setGeometry(QRect(50, 90, 171, 20));
-=======
-        ConsultarPecados->setGeometry(QRect(280, 90, 171, 51));
-        inpNumHumans = new QLineEdit(centralwidget);
-        inpNumHumans->setObjectName(QString::fromUtf8("inpNumHumans"));
-        inpNumHumans->setGeometry(QRect(50, 90, 171, 20));
-        label_2 = new QLabel(centralwidget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(56, 200, 161, 20));
-        label_2->setAlignment(Qt::AlignCenter);
+        lblTree = new QLabel(centralwidget);
+        lblTree->setObjectName(QString::fromUtf8("lblTree"));
+        lblTree->setGeometry(QRect(50, 190, 171, 31));
+        lblTree->setFont(font);
+        lblTree->setAlignment(Qt::AlignCenter);
         lblTreeData = new QLabel(centralwidget);
         lblTreeData->setObjectName(QString::fromUtf8("lblTreeData"));
-        lblTreeData->setGeometry(QRect(50, 230, 171, 61));
-        lblTreeData->setAlignment(Qt::AlignCenter);
-        lblLastLvlHumans = new QLabel(centralwidget);
-        lblLastLvlHumans->setObjectName(QString::fromUtf8("lblLastLvlHumans"));
-        lblLastLvlHumans->setGeometry(QRect(60, 300, 161, 311));
-        lblLastLvlHumans->setAlignment(Qt::AlignCenter);
->>>>>>> Development
+        lblTreeData->setGeometry(QRect(50, 220, 221, 61));
+        lblLastLvlTree = new QLabel(centralwidget);
+        lblLastLvlTree->setObjectName(QString::fromUtf8("lblLastLvlTree"));
+        lblLastLvlTree->setGeometry(QRect(50, 290, 221, 311));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -139,9 +124,9 @@ public:
         ConsultarFamilias->setText(QCoreApplication::translate("MainWindow", "Consultar familias", nullptr));
         ConsultarBuenasAcciones->setText(QCoreApplication::translate("MainWindow", "Consultar buenas acciones", nullptr));
         ConsultarPecados->setText(QCoreApplication::translate("MainWindow", "Consultar Pecados", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "Arbol", nullptr));
+        lblTree->setText(QCoreApplication::translate("MainWindow", "Arbol", nullptr));
         lblTreeData->setText(QString());
-        lblLastLvlHumans->setText(QString());
+        lblLastLvlTree->setText(QString());
     } // retranslateUi
 
 };

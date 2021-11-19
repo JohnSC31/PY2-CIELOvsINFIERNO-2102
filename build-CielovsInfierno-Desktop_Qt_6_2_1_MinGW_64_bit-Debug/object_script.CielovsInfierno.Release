@@ -1,8 +1,5 @@
 release/Actions.o
-<<<<<<< HEAD
 release/Demon.o
-=======
->>>>>>> Development
 release/Human.o
 release/HumanList.o
 release/PeopleTree.o

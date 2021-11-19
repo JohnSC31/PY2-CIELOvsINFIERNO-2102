@@ -141,7 +141,7 @@ public:
 };
 
 // -------------------------------------- ESTRUCTURA PARA LAS BUENAS Y MALAS ACCIONES ----------------------------- //
-struct Actions{
+/*struct Actions{
 
 public:
     QString type = "";
@@ -160,7 +160,7 @@ public:
     int countGoods();
     int countSins();
 
-};
+};*/
 
 
 struct Action{
@@ -239,8 +239,14 @@ public:
 
 struct Demons{
     QString demons[7] = {"Lucifer", "Belcebú", "Satán", "Abadón", "Mammón", "Belfegor", "Asmodeo"};
+    QString itsSins[7] = {"Orgullo", "Envidia", "Ira", "Pereza", "Codicia", "Glotonería", "Lujuria"};
 };
 
+struct DemonFamilies{
+    Demons * demons;
+    TheWorld * world;
+
+};
 
 
 // -------------------------------------- ESTRUCTURAS PARA EL INFIERNO ----------------------------- //

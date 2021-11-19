@@ -52,7 +52,7 @@ void TheWorld::generateHumans(int numHumans){
         humans[indexHumansArray] = newHuman;
         indexHumansArray++;
         qDebug() << "Humano agregado al array. ";
-
+        qDebug() << "Humano 1: " << humans[0]->childList;
         if(peopleTree->root == NULL){
             // no hay arbol
             humanList->insertHuman(newHuman);
