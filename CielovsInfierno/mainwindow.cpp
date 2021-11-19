@@ -10,10 +10,23 @@ MainWindow::MainWindow(QWidget *parent)
     // detectar el cambio de los comboboxs
     //connect(ui->cmbTrays, SIGNAL(currentIndexChanged(int)), this, SLOT(on_cmbTrays_change(int)));
 
-    // Asignacion de los componentes graficos
-    // el mundo
-    universe->world->lblTreeData = ui->lblTreeData;
-    universe->world->lblLastLvlTree = ui->lblLastLvlTree;
+        }else{
+            QTextStream in(&file);
+            while (!in.atEnd()) {
+                QString line = in.readLine();
+                qDebug() << line;
+            }
+            file.close();
+        }
+    }
+
+    //TheWorld* elMundo = new TheWorld;
+    //qDebug() << elMundo->lastNamesList[1];
+    QColor* elColor = new QColor();
+    elColor->red();
+
+
+
 }
 
 MainWindow::~MainWindow()

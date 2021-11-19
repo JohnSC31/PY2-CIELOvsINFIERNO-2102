@@ -4,7 +4,8 @@
 #include <QMainWindow>
 #include <math.h>
 #include "structs.h"
-#include "helper.h"
+#include <QColor>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

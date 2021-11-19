@@ -11,6 +11,10 @@ int main(int argc, char *argv[])
     x.printSins();
     qDebug() << "Total buenas acciones: " << x.countGoods() << "\n";
     qDebug() << "Total de pecados: " << x.countSins() << "\n";*/
+    //TheWorld* elMundo = new TheWorld();
+    //elMundo->initLastNamesList();
+    //qDebug() << "Nombres: "<< elMundo->lastNamesList[0];
+
 
 
 
