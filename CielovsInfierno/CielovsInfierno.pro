@@ -14,11 +14,14 @@ SOURCES += \
     HumanList.cpp \
     PeopleTree.cpp \
     TheWorld.cpp \
+    Universe.cpp \
+    helper.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     estructurasHumanos.h \
+    helper.h \
     mainwindow.h \
     structs.h
 

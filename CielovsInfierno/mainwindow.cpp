@@ -7,31 +7,24 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    qDebug() << "Se ejecuta";
-    // pruebas para la lectura de archivos
-    QString filePath = QDir::currentPath() + "/../Names.txt";
-    qDebug() << "ruta: " + filePath;
-    QFile file(filePath);
-    QString errMsg;
-    QFileDevice::FileError err = QFileDevice::NoError;
-    if (!file.exists()) {
-        qDebug() << "No existe el archivox2";
-    }else{
-        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
-            qDebug() << "Error al abrir el archivo";
-            errMsg = file.errorString();
-            err = file.error();
-            qDebug() << errMsg;
+    // detectar el cambio de los comboboxs
+    //connect(ui->cmbTrays, SIGNAL(currentIndexChanged(int)), this, SLOT(on_cmbTrays_change(int)));
 
         }else{
             QTextStream in(&file);
             while (!in.atEnd()) {
                 QString line = in.readLine();
-//                qDebug() << line;
+                qDebug() << line;
             }
             file.close();
         }
     }
+
+    //TheWorld* elMundo = new TheWorld;
+    //qDebug() << elMundo->lastNamesList[1];
+    QColor* elColor = new QColor();
+    elColor->red();
+
 
 
 }
@@ -40,4 +33,30 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
+//------------------- FUNCIONES DE LOS ACTION LISTENER DE LOS BOTONES----------------------------------------------
+// funcion para el boton de generar humanos
+void MainWindow::on_btnGenerateHumans_clicked(){
+    QString humansStr = ui->inpNumHumans->text();
+
+    if(validNumber(humansStr)){
+        ui->inpNumHumans->setText("");
+        universe->world->generateHumans(humansStr.toInt());
+        qDebug () << "se generan " + humansStr + " humanos";
+    }
+
+
+}
+
+// genera acciones para todos los humanos
+void MainWindow::on_btnSumOfActions_clicked(){
+
+    universe->world->sumOfActions();
+
+    qDebug() << "Se generan acciones";
+}
+
+
+
 
