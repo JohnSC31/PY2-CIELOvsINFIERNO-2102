@@ -238,7 +238,73 @@ public:
 
 
 // -------------------------------------- ESTRUCTURAS PARA EL CIELO -------------------------------- //
+struct HeavenNode{
+    Human* human;
+    HeavenNode* leftChild;
+    HeavenNode* rightChild;
 
+public:
+    HeavenNode(Human* theHuman){
+        human = theHuman;
+    }
+};
+
+
+struct HeavenTree{
+    HeavenNode* root;
+
+
+public:
+    int height(HeavenNode* t);
+    int difference(HeavenNode* t);
+    /*
+    avl *rr_rotat(avl *);
+    avl *ll_rotat(avl *);
+    avl *lr_rotat(avl*);
+    avl *rl_rotat(avl *);
+    */
+    HeavenNode* rrRot(HeavenNode* r);
+    HeavenNode* llRot(HeavenNode* r);
+    HeavenNode* lrRot(HeavenNode* r);
+    HeavenNode* rlRot(HeavenNode* r);
+    HeavenNode* balance(HeavenNode* r);
+    HeavenNode* insert(HeavenNode* r, Human* theHuman);
+    void show(HeavenNode* r, int l);
+    void inorder(HeavenNode* r);
+
+public:
+    HeavenTree(){
+        root= NULL;
+    }
+
+};
+
+struct Heaven{
+
+    HeavenTree* heavenList[1000];
+
+public:
+    int hashFunction(int);
+    void insert(Human*);
+
+};
+
+struct Angel{
+    QString name;
+    int version;
+    int generation;
+    Human* savedHuman;
+    Angel* leftChild;
+    Angel* middleChild;
+    Angel* rightChild;
+};
+
+struct AngelTree{
+    int levels;
+    int generations;
+    Angel* root;
+    QString angelNames[10] =  {"Miguel", "Nuriel", "Aniel", "Rafael", "Gabriel", "Shamsiel", "Raguel", "Uriel", "Azael", "Sariel"};
+};
 
 
 // -------------------------------------- ESTRUCTURA PRINCIPAL ------------------------------------- //
