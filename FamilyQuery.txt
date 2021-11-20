@@ -1,11 +1,10 @@
---------- Consulta pecados familia Reyes-Andorra ---------
-1058 Arturo Reyes 	Lujuria 150	Gula 66	Avaricia 68	Pereza 108	Ira 36	Envidia 47	Soberbia 133	
-3273 Camilo Reyes 	Lujuria 147	Gula 82	Avaricia 57	Pereza 51	Ira 109	Envidia 46	Soberbia 107	
-4290 Alfredo Reyes 	Lujuria 191	Gula 77	Avaricia 177	Pereza 199	Ira 121	Envidia 160	Soberbia 162	
-8707 Adiran Reyes 	Lujuria 156	Gula 131	Avaricia 39	Pereza 53	Ira 115	Envidia 95	Soberbia 143	
-11981 Eric Reyes 	Lujuria 134	Gula 91	Avaricia 121	Pereza 49	Ira 69	Envidia 68	Soberbia 74	
-12195 Aitor Reyes 	Lujuria 61	Gula 27	Avaricia 75	Pereza 96	Ira 138	Envidia 133	Soberbia 36	
-13415 Aleix Reyes 	Lujuria 19	Gula 20	Avaricia 1	Pereza 32	Ira 100	Envidia 77	Soberbia 0	
-13701 Arturo Reyes 	Lujuria 159	Gula 66	Avaricia 90	Pereza 34	Ira 71	Envidia 99	Soberbia 68	
-28733 Arturo Reyes 	Lujuria 21	Gula 26	Avaricia 24	Pereza 45	Ira 58	Envidia 85	Soberbia 52	
-30860 Edgar Reyes 	Lujuria 99	Gula 41	Avaricia 44	Pereza 69	Ira 83	Envidia 45	Soberbia 72	
+--------- Consulta buenas acciones familia Ortega-Arabia Saudita ---------
+3400 Aníbal Ortega 	Castidad 59	Ayuno 92	Donación 52	Diligencia 58	Calma 51	Solidaridad 151	Humildad 149	
+3874 Conrado Ortega 	Castidad 72	Ayuno 73	Donación 90	Diligencia 64	Calma 53	Solidaridad 60	Humildad 114	
+4276 Esteban Ortega 	Castidad 52	Ayuno 85	Donación 0	Diligencia 74	Calma 17	Solidaridad 10	Humildad 64	
+10173 Edgar Ortega 	Castidad 194	Ayuno 36	Donación 147	Diligencia 134	Calma 160	Solidaridad 124	Humildad 92	
+10319 Conrado Ortega 	Castidad 31	Ayuno 63	Donación 26	Diligencia 100	Calma 102	Solidaridad 127	Humildad 138	
+10822 FranciscoJosé Ortega 	Castidad 128	Ayuno 58	Donación 48	Diligencia 45	Calma 134	Solidaridad 70	Humildad 75	
+13764 David Ortega 	Castidad 73	Ayuno 74	Donación 77	Diligencia 53	Calma 98	Solidaridad 138	Humildad 130	
+18884 Eloy Ortega 	Castidad 108	Ayuno 33	Donación 59	Diligencia 50	Calma 140	Solidaridad 110	Humildad 106	
+28371 Francisco Ortega 	Castidad 56	Ayuno 37	Donación 117	Diligencia 48	Calma 37	Solidaridad 99	Humildad 123	

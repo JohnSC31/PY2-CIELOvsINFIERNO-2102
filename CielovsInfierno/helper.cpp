@@ -41,6 +41,8 @@ int maxInt(int a, int b){
 
 // escribir en un archivo txt
 bool writeFile(QString fileName, QString text){
+    deleteFile(fileName);
+
     QFile file(QDir::currentPath() + "/../" + fileName + ".txt");
     /*
      * If file not exit it will create
@@ -56,6 +58,11 @@ bool writeFile(QString fileName, QString text){
 
     return true;
 
+}
+
+void deleteFile(QString fileName){
+    QFile file(QDir::currentPath() + "/../" + fileName + ".txt");
+    file.remove();
 }
 
 
