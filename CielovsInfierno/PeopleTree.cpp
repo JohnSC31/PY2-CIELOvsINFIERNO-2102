@@ -14,20 +14,20 @@ PeopleTree::PeopleTree(HumanList * humanList){
 
     int nodeAmount = getNodeTreeAmount(humanList->length); // iteraciones
     int moveNode = humanList->length / 2;
+    int jmp = humanList->getLength() / nodeAmount;
     HumanNode * midNode = humanList->moveToNode(moveNode, true, humanList->firstNode);
     qDebug() << "mid id: " + QString::number(midNode->human->id);
 
-    generateTree(humanList, midNode, moveNode, 1, nodeAmount);
+    generateTree(humanList, midNode, moveNode, jmp);
 }
 
 
-void PeopleTree::generateTree(HumanList * list, HumanNode * node, int moveNode, int nodes, int totalAmount){
-    if(node != NULL && nodes < totalAmount / 2){
-        qDebug() << "Se insertara";
+void PeopleTree::generateTree(HumanList * list, HumanNode * node, int moveNode, int jmp){
+    if(node != NULL && moveNode >= jmp){
         insert(node); // inserta este nodo
         // recursion
-        generateTree(list, list->moveToNode(moveNode / 2, false, node), moveNode / 2, nodes + 1, totalAmount);
-        generateTree(list, list->moveToNode(moveNode / 2, true, node), moveNode / 2, nodes + 1, totalAmount);
+        generateTree(list, list->moveToNode(moveNode / 2, false, node), moveNode / 2, jmp);
+        generateTree(list, list->moveToNode(moveNode / 2, true, node), moveNode / 2, jmp);
     }
 }
 
@@ -136,21 +136,4 @@ QString PeopleTree::auxGetLastLvlHumans(TreeNode * node){
        }
 }
 
-int PeopleTree::getLeafAmount(TreeNode * node){
-        if (node == NULL){
-            return 0;
-       }else if (isLeaf(node)){
-            return 1;
-       }else{
-           return getLeafAmount(node->leftChild) + getLeafAmount(node->rightChild);
-       }
-}
-
-void PeopleTree::printPreOrden(TreeNode * node){
-    if (node != NULL){
-         qDebug() << node->personId << "  ";
-         printPreOrden(node->leftChild);
-         printPreOrden(node->rightChild);
-    }
-}
 
