@@ -1,5 +1,5 @@
 #include "structs.h"
-
+#include <QString>
 
 TheWorld::TheWorld(){
     humanList = new HumanList();
@@ -49,10 +49,10 @@ void TheWorld::generateHumans(int numHumans){
 
         // asignacion de hijos
         asignChilds(newHuman);
-        humans[indexHumansArray] = newHuman;
-        indexHumansArray++;
+        humans[indexHumansArray] = newHuman->id;
         qDebug() << "Humano agregado al array. ";
-        qDebug() << "Humano 1: " << humans[0]->childList;
+        qDebug() << "Humano 1: " << humans[indexHumansArray];
+        indexHumansArray++;
         if(peopleTree->root == NULL){
             // no hay arbol
             humanList->insertHuman(newHuman);
@@ -315,6 +315,26 @@ void TheWorld::initJobsList(){
         file.close();
     }
 
+}
+int TheWorld::lenghtArray(int array[], int len){
+    for(int i = 0; i<len; i++){
+                if(array[i] == NULL){
+                    return i;
+                }
+                else if(i == len){
+                    return len;
+                }
+            }
+}
+void TheWorld::condenate(){
+    int lenArrayID = lenghtArray(humans, 10000);
+    for(int index = 0; index <= lenArrayID; index++){
+        int temp = humans[index];
+        HumanNode * human = searchHuman(temp);
+        for(int sinIndex = 0; sinIndex < 7; sinIndex++){
+            human->human->father;
+        }
+    }
 }
 
 

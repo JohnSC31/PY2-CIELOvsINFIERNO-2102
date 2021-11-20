@@ -100,7 +100,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1323, 21));
+        menubar->setGeometry(QRect(0, 0, 1323, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -118,7 +118,7 @@ public:
         btnGenerateHumans->setText(QCoreApplication::translate("MainWindow", "Generar Humanos", nullptr));
         btnSumOfActions->setText(QCoreApplication::translate("MainWindow", "Suma de acciones", nullptr));
         GenerarBuenasAcciones->setText(QCoreApplication::translate("MainWindow", "Generar Buenas Acciones", nullptr));
-        ConsultarMiembrosDeInfierno->setText(QCoreApplication::translate("MainWindow", "Miembros del infierno", nullptr));
+        ConsultarMiembrosDeInfierno->setText(QCoreApplication::translate("MainWindow", "Iniciar condenaci\303\263n", nullptr));
         IniciarSalvacion->setText(QCoreApplication::translate("MainWindow", "Iniciar salvaci\303\263n", nullptr));
         MostrarGanador->setText(QCoreApplication::translate("MainWindow", "Mostrar ganador", nullptr));
         ConsultarFamilias->setText(QCoreApplication::translate("MainWindow", "Consultar familias", nullptr));

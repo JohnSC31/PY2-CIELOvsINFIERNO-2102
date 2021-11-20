@@ -99,6 +99,7 @@ public:
     HumanNode * searchHuman(int humanId, HumanNode * refNode);
     bool isEmpty();
     int getLength();
+
 };
 
 // ----------------------- ESTRUCTURAS PARA EL ARBOL DE HUMANOS -----------
@@ -178,7 +179,7 @@ public:
 // --------------------- ESTRUCTURAS DEL MUNDO -----------------
 struct TheWorld{
 public:
-    Human * humans[10000];
+    int humans[10000];
     int indexHumansArray = 0;
     HumanList * humanList; // lista de humanos doblemente enlazada
     PeopleTree * peopleTree; // arbol de personas
@@ -245,7 +246,10 @@ struct Demons{
 struct DemonFamilies{
     Demons * demons;
     TheWorld * world;
+    HumanNode * humanList;
 
+    DemonFamilies();
+    void goByList();
 };
 
 

@@ -1,4 +1,5 @@
 debug/Actions.o
+debug/Condenation.o
 debug/Demon.o
 debug/Human.o
 debug/HumanList.o

@@ -84,7 +84,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Miembros del infierno</string>
+     <string>Iniciar condenación</string>
     </property>
    </widget>
    <widget class="QPushButton" name="IniciarSalvacion">
@@ -216,7 +216,7 @@
      <x>0</x>
      <y>0</y>
      <width>1323</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

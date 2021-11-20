@@ -1,4 +1,5 @@
 release/Actions.o
+release/Condenation.o
 release/Demon.o
 release/Human.o
 release/HumanList.o

@@ -47,3 +47,10 @@ void MainWindow::on_btnSumOfActions_clicked(){
 
 
 
+
+void MainWindow::on_ConsultarMiembrosDeInfierno_clicked()
+{
+universe->world->printPeopleTreeData();
+
+}
+

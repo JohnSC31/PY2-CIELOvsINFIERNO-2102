@@ -26,6 +26,8 @@ private slots:
     void on_btnGenerateHumans_clicked();
     void on_btnSumOfActions_clicked();
 
+    void on_ConsultarMiembrosDeInfierno_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
