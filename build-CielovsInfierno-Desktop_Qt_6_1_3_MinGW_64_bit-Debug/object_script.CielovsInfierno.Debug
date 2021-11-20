@@ -1,6 +1,9 @@
 debug/Actions.o
+debug/Demon.o
+debug/Family.o
 debug/Heaven.o
 debug/HeavenTree.o
+debug/Hell.o
 debug/Human.o
 debug/HumanList.o
 debug/PeopleTree.o

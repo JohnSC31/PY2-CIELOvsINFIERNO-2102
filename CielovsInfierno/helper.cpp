@@ -45,16 +45,14 @@ bool writeFile(QString fileName, QString text){
     /*
      * If file not exit it will create
      * */
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text | QIODevice::ReadWrite)){
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text | QIODevice::ReadWrite | QIODevice::WriteOnly)){
         qDebug() << "FAIL TO CREATE FILE / FILE NOT EXIT***";
         return false;
     }
 
-    /*for writing line by line to text file */
-//    if (file.open(QIODevice::ReadWrite)){
-        QTextStream stream(&file);
-        stream << text;
-//    }
+    QTextStream stream(&file);
+    stream << text;
+
 
     return true;
 

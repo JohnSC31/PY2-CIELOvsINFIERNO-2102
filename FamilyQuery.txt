@@ -1,14 +1,11 @@
---------- Consulta pecados familia Gomez-Albania ---------
-64 Boris Gomez 	Lujuria 39	Gula 89	Avaricia 163	Pereza 85	Ira 75	Envidia 178	Soberbia 111	
-478 Darío Gomez 	Lujuria 146	Gula 124	Avaricia 96	Pereza 119	Ira 116	Envidia 48	Soberbia 106	
-1057 Dionisio Gomez 	Lujuria 92	Gula 39	Avaricia 97	Pereza 77	Ira 45	Envidia 61	Soberbia 81	
-4122 Arturo Gomez 	Lujuria 85	Gula 131	Avaricia 135	Pereza 120	Ira 152	Envidia 116	Soberbia 68	
-13146 Camilo Gomez 	Lujuria 99	Gula 130	Avaricia 111	Pereza 61	Ira 126	Envidia 62	Soberbia 92	
-14683 Eloy Gomez 	Lujuria 36	Gula 42	Avaricia 136	Pereza 72	Ira 95	Envidia 161	Soberbia 139	
-23469 FranciscoJosé Gomez 	Lujuria 114	Gula 127	Avaricia 126	Pereza 91	Ira 125	Envidia 47	Soberbia 74	
-28750 Asier Gomez 	Lujuria 104	Gula 61	Avaricia 60	Pereza 83	Ira 99	Envidia 52	Soberbia 59	
-28981 Andrés Gomez 	Lujuria 74	Gula 57	Avaricia 94	Pereza 85	Ira 121	Envidia 145	Soberbia 158	
-30100 Elías Gomez 	Lujuria 125	Gula 84	Avaricia 144	Pereza 99	Ira 119	Envidia 57	Soberbia 117	
-30274 Aníbal Gomez 	Lujuria 148	Gula 72	Avaricia 69	Pereza 141	Ira 118	Envidia 92	Soberbia 129	
-32182 Alejo Gomez 	Lujuria 78	Gula 75	Avaricia 119	Pereza 66	Ira 126	Envidia 86	Soberbia 67	
-32365 Fidel Gomez 	Lujuria 138	Gula 69	Avaricia 139	Pereza 68	Ira 94	Envidia 89	Soberbia 125	
+--------- Consulta pecados familia Reyes-Andorra ---------
+1058 Arturo Reyes 	Lujuria 150	Gula 66	Avaricia 68	Pereza 108	Ira 36	Envidia 47	Soberbia 133	
+3273 Camilo Reyes 	Lujuria 147	Gula 82	Avaricia 57	Pereza 51	Ira 109	Envidia 46	Soberbia 107	
+4290 Alfredo Reyes 	Lujuria 191	Gula 77	Avaricia 177	Pereza 199	Ira 121	Envidia 160	Soberbia 162	
+8707 Adiran Reyes 	Lujuria 156	Gula 131	Avaricia 39	Pereza 53	Ira 115	Envidia 95	Soberbia 143	
+11981 Eric Reyes 	Lujuria 134	Gula 91	Avaricia 121	Pereza 49	Ira 69	Envidia 68	Soberbia 74	
+12195 Aitor Reyes 	Lujuria 61	Gula 27	Avaricia 75	Pereza 96	Ira 138	Envidia 133	Soberbia 36	
+13415 Aleix Reyes 	Lujuria 19	Gula 20	Avaricia 1	Pereza 32	Ira 100	Envidia 77	Soberbia 0	
+13701 Arturo Reyes 	Lujuria 159	Gula 66	Avaricia 90	Pereza 34	Ira 71	Envidia 99	Soberbia 68	
+28733 Arturo Reyes 	Lujuria 21	Gula 26	Avaricia 24	Pereza 45	Ira 58	Envidia 85	Soberbia 52	
+30860 Edgar Reyes 	Lujuria 99	Gula 41	Avaricia 44	Pereza 69	Ira 83	Envidia 45	Soberbia 72	
