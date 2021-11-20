@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -32,13 +33,19 @@ public:
     QPushButton *ConsultarMiembrosDeInfierno;
     QPushButton *IniciarSalvacion;
     QPushButton *MostrarGanador;
-    QPushButton *ConsultarFamilias;
     QPushButton *ConsultarBuenasAcciones;
-    QPushButton *ConsultarPecados;
+    QPushButton *btnQueryFamily;
     QLineEdit *inpNumHumans;
     QLabel *lblTree;
     QLabel *lblTreeData;
     QLabel *lblLastLvlTree;
+    QLabel *label_2;
+    QLabel *label_3;
+    QComboBox *cmbQueryFamily;
+    QLineEdit *inpQueryFamily;
+    QLabel *label_4;
+    QComboBox *comboBox_2;
+    QPushButton *ConsultarPecados_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -64,25 +71,22 @@ public:
         btnSumOfActions->setGeometry(QRect(50, 150, 171, 31));
         GenerarBuenasAcciones = new QPushButton(centralwidget);
         GenerarBuenasAcciones->setObjectName(QString::fromUtf8("GenerarBuenasAcciones"));
-        GenerarBuenasAcciones->setGeometry(QRect(370, 480, 171, 51));
+        GenerarBuenasAcciones->setGeometry(QRect(570, 410, 171, 51));
         ConsultarMiembrosDeInfierno = new QPushButton(centralwidget);
         ConsultarMiembrosDeInfierno->setObjectName(QString::fromUtf8("ConsultarMiembrosDeInfierno"));
-        ConsultarMiembrosDeInfierno->setGeometry(QRect(370, 300, 171, 51));
+        ConsultarMiembrosDeInfierno->setGeometry(QRect(570, 520, 171, 51));
         IniciarSalvacion = new QPushButton(centralwidget);
         IniciarSalvacion->setObjectName(QString::fromUtf8("IniciarSalvacion"));
-        IniciarSalvacion->setGeometry(QRect(370, 360, 171, 51));
+        IniciarSalvacion->setGeometry(QRect(560, 90, 171, 51));
         MostrarGanador = new QPushButton(centralwidget);
         MostrarGanador->setObjectName(QString::fromUtf8("MostrarGanador"));
-        MostrarGanador->setGeometry(QRect(370, 420, 171, 51));
-        ConsultarFamilias = new QPushButton(centralwidget);
-        ConsultarFamilias->setObjectName(QString::fromUtf8("ConsultarFamilias"));
-        ConsultarFamilias->setGeometry(QRect(370, 180, 171, 51));
+        MostrarGanador->setGeometry(QRect(560, 180, 171, 51));
         ConsultarBuenasAcciones = new QPushButton(centralwidget);
         ConsultarBuenasAcciones->setObjectName(QString::fromUtf8("ConsultarBuenasAcciones"));
-        ConsultarBuenasAcciones->setGeometry(QRect(370, 240, 171, 51));
-        ConsultarPecados = new QPushButton(centralwidget);
-        ConsultarPecados->setObjectName(QString::fromUtf8("ConsultarPecados"));
-        ConsultarPecados->setGeometry(QRect(370, 110, 171, 51));
+        ConsultarBuenasAcciones->setGeometry(QRect(560, 310, 171, 51));
+        btnQueryFamily = new QPushButton(centralwidget);
+        btnQueryFamily->setObjectName(QString::fromUtf8("btnQueryFamily"));
+        btnQueryFamily->setGeometry(QRect(320, 150, 171, 31));
         inpNumHumans = new QLineEdit(centralwidget);
         inpNumHumans->setObjectName(QString::fromUtf8("inpNumHumans"));
         inpNumHumans->setGeometry(QRect(50, 90, 171, 20));
@@ -97,6 +101,36 @@ public:
         lblLastLvlTree = new QLabel(centralwidget);
         lblLastLvlTree->setObjectName(QString::fromUtf8("lblLastLvlTree"));
         lblLastLvlTree->setGeometry(QRect(50, 290, 221, 311));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(56, 40, 161, 20));
+        label_2->setAlignment(Qt::AlignCenter);
+        label_3 = new QLabel(centralwidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(320, 40, 161, 20));
+        label_3->setAlignment(Qt::AlignCenter);
+        cmbQueryFamily = new QComboBox(centralwidget);
+        cmbQueryFamily->addItem(QString());
+        cmbQueryFamily->addItem(QString());
+        cmbQueryFamily->setObjectName(QString::fromUtf8("cmbQueryFamily"));
+        cmbQueryFamily->setGeometry(QRect(320, 120, 171, 22));
+        inpQueryFamily = new QLineEdit(centralwidget);
+        inpQueryFamily->setObjectName(QString::fromUtf8("inpQueryFamily"));
+        inpQueryFamily->setGeometry(QRect(320, 90, 171, 20));
+        label_4 = new QLabel(centralwidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(320, 70, 161, 20));
+        label_4->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        comboBox_2 = new QComboBox(centralwidget);
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->setObjectName(QString::fromUtf8("comboBox_2"));
+        comboBox_2->setGeometry(QRect(320, 220, 171, 22));
+        ConsultarPecados_2 = new QPushButton(centralwidget);
+        ConsultarPecados_2->setObjectName(QString::fromUtf8("ConsultarPecados_2"));
+        ConsultarPecados_2->setGeometry(QRect(320, 250, 171, 31));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -121,12 +155,23 @@ public:
         ConsultarMiembrosDeInfierno->setText(QCoreApplication::translate("MainWindow", "Miembros del infierno", nullptr));
         IniciarSalvacion->setText(QCoreApplication::translate("MainWindow", "Iniciar salvaci\303\263n", nullptr));
         MostrarGanador->setText(QCoreApplication::translate("MainWindow", "Mostrar ganador", nullptr));
-        ConsultarFamilias->setText(QCoreApplication::translate("MainWindow", "Consultar familias", nullptr));
         ConsultarBuenasAcciones->setText(QCoreApplication::translate("MainWindow", "Consultar buenas acciones", nullptr));
-        ConsultarPecados->setText(QCoreApplication::translate("MainWindow", "Consultar Pecados", nullptr));
+        btnQueryFamily->setText(QCoreApplication::translate("MainWindow", "Consultar Familia", nullptr));
         lblTree->setText(QCoreApplication::translate("MainWindow", "Arbol", nullptr));
         lblTreeData->setText(QString());
         lblLastLvlTree->setText(QString());
+        label_2->setText(QCoreApplication::translate("MainWindow", "Nacimiento", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "Consultas", nullptr));
+        cmbQueryFamily->setItemText(0, QCoreApplication::translate("MainWindow", "Pecados", nullptr));
+        cmbQueryFamily->setItemText(1, QCoreApplication::translate("MainWindow", "Buenas Acciones", nullptr));
+
+        label_4->setText(QCoreApplication::translate("MainWindow", "Identificador", nullptr));
+        comboBox_2->setItemText(0, QCoreApplication::translate("MainWindow", "Mas pecadores", nullptr));
+        comboBox_2->setItemText(1, QCoreApplication::translate("MainWindow", "Menos pecadores", nullptr));
+        comboBox_2->setItemText(2, QCoreApplication::translate("MainWindow", "Mas Buenos", nullptr));
+        comboBox_2->setItemText(3, QCoreApplication::translate("MainWindow", "Menos Buenos", nullptr));
+
+        ConsultarPecados_2->setText(QCoreApplication::translate("MainWindow", "Consultar Familia", nullptr));
     } // retranslateUi
 
 };

@@ -51,7 +51,7 @@ void TheWorld::generateHumans(int numHumans){
         asignChilds(newHuman);
         humans[indexHumansArray] = newHuman;
         indexHumansArray++;
-        qDebug() << "Humano agregado al array. ";
+        //qDebug() << "Humano agregado al array. ";
 
         if(peopleTree->root == NULL){
             // no hay arbol
@@ -89,29 +89,14 @@ void TheWorld::initActions(Human * human){
 void TheWorld::sumOfActions(){
     HumanNode * temp = humanList->firstNode;
     while(temp != NULL){
-        // suma de pecados
-        sumOfSins(temp->human);
-        // suma de buenas acciones
-        sumOfGoods(temp->human);
+        for(int i = 0; i < 7; i++){
+            sumOfSin(temp->human, sinsActions[i], rand() % 101, 0);
+            sumOfGood(temp->human, goodActions[i], rand() % 101, 0);
+        }
 
         temp = temp->next;
     }
 }
-
-// la suma de pecados
-void TheWorld::sumOfSins(Human * human){
-    for(int i = 0; i < 7; i++){
-        sumOfSin(human, sinsActions[i], rand() % 101, 0);
-    }
-}
-
-// suma de buenas acciones
-void TheWorld::sumOfGoods(Human * human){
-    for(int i = 0; i < 7; i++){
-        sumOfGood(human, goodActions[i], rand() % 101, 0);
-    }
-}
-
 
 // la suma de una accion en especifico y su herencia
 void TheWorld::sumOfGood(Human * human, QString good, int amount, int generation){
@@ -123,7 +108,8 @@ void TheWorld::sumOfGood(Human * human, QString good, int amount, int generation
         // se realiza la herencia
         HumanNode * tempChild = human->childList->firstNode;
         while(tempChild != NULL){
-            sumOfSin(tempChild->human, good, (amount / 2), generation + 1);
+            sumOfGood(tempChild->human, good, (amount / 2), generation + 1);
+            tempChild = tempChild->next;
         }
         return;
     }
@@ -141,6 +127,7 @@ void TheWorld::sumOfSin(Human * human, QString sin, int amount, int generation){
         HumanNode * tempChild = human->childList->firstNode;
         while(tempChild != NULL){
             sumOfSin(tempChild->human, sin, (amount / 2), generation + 1);
+            tempChild = tempChild->next;
         }
         return;
     }
@@ -176,7 +163,6 @@ bool TheWorld::validHumanId(int newHumanId){
 // asigna hijos de forma aleatoria de la lista de humanos
 void TheWorld::asignChilds(Human * human){
     int numChilds = rand() % 9; // random de 0 a 8
-
     HumanNode * temp = humanList->firstNode;
 
     while(temp != NULL){
@@ -225,6 +211,39 @@ void TheWorld::printPeopleTreeData(){
     lblLastLvlTree->setText(peopleTree->getLastLvlHumans());
 }
 
+// consulta las buenas acciones o los pecados de una familia dada el id de una persona
+void TheWorld::queryFamilyActions(int humanId, QString actionType){
+    HumanNode * searchedHuman = searchHuman(humanId); // busca al humano
+    QString strQuery = "";
+
+    if(searchedHuman != NULL){
+        // busca su familia en el mundo
+        HumanList * family = new HumanList();
+        humanList->getFamilyOf(searchedHuman, family);
+        HumanNode * tmp = family->firstNode;
+        if(actionType == "Pecados"){
+            strQuery += "--------- Consulta pecados familia " + searchedHuman->human->lastName +"-" + searchedHuman->human->country + " ---------\n";
+
+            while(tmp != NULL){
+                strQuery += QString::number(tmp->human->id) +" "+tmp->human->name +" "+ tmp->human->lastName +" \t"+ tmp->human->sinsToString() + "\n";
+                tmp = tmp->next;
+            }
+        }else{
+            strQuery += "--------- Consulta buenas acciones familia " + searchedHuman->human->lastName +"-" + searchedHuman->human->country + " ---------\n";
+
+            while(tmp != NULL){
+                strQuery += QString::number(tmp->human->id) +" "+tmp->human->name +" "+ tmp->human->lastName +" \t"+ tmp->human->goodsToString() + "\n";
+                tmp = tmp->next;
+            }
+        }
+    }else{
+        strQuery += "El humano de id " + QString::number(humanId) + " no existe";
+    }
+
+
+    writeFile("FamilyQuery", strQuery);
+
+}
 
 
 // ------------ funciones para llenar los arreglos de datos para la generacion de humanos ---------------------------
