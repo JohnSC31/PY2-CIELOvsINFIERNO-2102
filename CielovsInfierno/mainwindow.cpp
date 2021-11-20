@@ -9,24 +9,26 @@ MainWindow::MainWindow(QWidget *parent)
 
     // detectar el cambio de los comboboxs
     //connect(ui->cmbTrays, SIGNAL(currentIndexChanged(int)), this, SLOT(on_cmbTrays_change(int)));
-
-        }else{
-            QTextStream in(&file);
-            while (!in.atEnd()) {
-                QString line = in.readLine();
-                qDebug() << line;
-            }
-            file.close();
-        }
-    }
+//
+//        }else{
+//            QTextStream in(&file);
+          //  while (!in.atEnd()) {
+         //       QString line = in.readLine();
+         //       qDebug() << line;
+       //     }
+     //       file.close();
+   //     }
+ //   }
 
     //TheWorld* elMundo = new TheWorld;
     //qDebug() << elMundo->lastNamesList[1];
-    QColor* elColor = new QColor();
-    elColor->red();
+ //   QColor* elColor = new QColor();
+//    elColor->red();
 
 
-
+    Heaven* daHeaven = new Heaven();
+    int h = daHeaven->hashFunction(986);
+    qDebug() << h;
 }
 
 MainWindow::~MainWindow()
