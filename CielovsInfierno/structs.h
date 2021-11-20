@@ -58,6 +58,8 @@ public:
     Human();
     Human(int _id, QString _name, QString _lastName, QString _country, QString belief, QString _profession, QString email);
     void addSin(QString sin, int amount);
+    QString sinsToString();
+    QString goodsToString();
     void addGood(QString good, int amount);
     QString toString();
     void print();
@@ -94,6 +96,7 @@ public:
     void insertEnd(Human * newHuman);
     void insertMiddle(Human * newHuman, HumanNode * refNode);
     HumanNode * searchHuman(int humanId, HumanNode * refNode);
+    void getFamilyOf(HumanNode * human, HumanList * family);
     bool isEmpty();
     int getLength();
 };
@@ -121,7 +124,7 @@ public:
 public:
     PeopleTree();
     PeopleTree(HumanList * humanList);
-    void generateTree(HumanList * list, HumanNode * refNode, int moveNode, int nodes, int totalAmount);
+    void generateTree(HumanList * list, HumanNode * node, int moveNode, int jmp);
     void insert(HumanNode * _humanNode);
     int getNodeTreeAmount(int lengthList);
     TreeNode * insert(int _personId, HumanNode * _personeNode, TreeNode * node);
@@ -175,7 +178,7 @@ public:
 // --------------------- ESTRUCTURAS DEL MUNDO -----------------
 struct TheWorld{
 public:
-    Human * humans[10000];
+    Human * humans[100000];
     int indexHumansArray = 0;
     HumanList * humanList; // lista de humanos doblemente enlazada
     PeopleTree * peopleTree; // arbol de personas
@@ -221,6 +224,10 @@ public:
     int genHumanId();
     bool validHumanId(int newHumanId);
     void printPeopleTreeData();
+    void queryFamilyActions(int humanId, QString actionType);
+
+
+
     // inicializacion para los datos para la generacion de humanos
     void initHumanIdList();
     void initNamesList();

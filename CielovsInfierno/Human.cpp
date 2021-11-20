@@ -29,24 +29,47 @@ Human::Human(int _id, QString _name, QString _lastName, QString _country, QStrin
 // se agrega al pecado la cantidad correspondiente
 void Human::addSin(QString sin, int amount){
 
-    for(int i = 0; i < sins.size(); i++){
+    for(int i = 0; i < sins.length(); i++){
         if(sins.at(i)->action == sin){
             sins.at(i)->amount += amount;
             return;
         }
     }
 
-    qDebug() << "el pecado no existe";
+    qDebug() << "el pecado no existe " + sin;
+}
+
+// retorna un string con todos los pecados y sus valores correspondiente
+QString Human::sinsToString(){
+    QString str = "";
+
+    for(int i = 0; i < sins.length(); i++){
+        str += sins.at(i)->action + " " + QString::number(sins.at(i)->amount) + "\t";
+    }
+
+    return str;
 }
 
 // se agrega a la buena accion la cantidad correspondiente
 void Human::addGood(QString good, int amount){
-   for(int i = 0; i < goods.size(); i++){
-    if(goods.at(i)->action == good){
-        goods.at(i)->amount += amount;
-        return;
+   for(int i = 0; i < goods.length(); i++){
+        if(goods.at(i)->action == good){
+            goods.at(i)->amount += amount;
+            return;
+        }
     }
+
+   qDebug() << "buena accion no existe " + good;
 }
+
+// retorna un string con todos las buenas acciones y sus valores correspondiente
+QString Human::goodsToString(){
+    QString str = "";
+    for(int i = 0; i < goods.length(); i++){
+        str += goods.at(i)->action + " " + QString::number(goods.at(i)->amount) + "\t";
+    }
+
+    return str;
 }
 
 

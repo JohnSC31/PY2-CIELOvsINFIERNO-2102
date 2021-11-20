@@ -1,0 +1,14 @@
+--------- Consulta pecados familia Gomez-Albania ---------
+64 Boris Gomez 	Lujuria 39	Gula 89	Avaricia 163	Pereza 85	Ira 75	Envidia 178	Soberbia 111	
+478 Darío Gomez 	Lujuria 146	Gula 124	Avaricia 96	Pereza 119	Ira 116	Envidia 48	Soberbia 106	
+1057 Dionisio Gomez 	Lujuria 92	Gula 39	Avaricia 97	Pereza 77	Ira 45	Envidia 61	Soberbia 81	
+4122 Arturo Gomez 	Lujuria 85	Gula 131	Avaricia 135	Pereza 120	Ira 152	Envidia 116	Soberbia 68	
+13146 Camilo Gomez 	Lujuria 99	Gula 130	Avaricia 111	Pereza 61	Ira 126	Envidia 62	Soberbia 92	
+14683 Eloy Gomez 	Lujuria 36	Gula 42	Avaricia 136	Pereza 72	Ira 95	Envidia 161	Soberbia 139	
+23469 FranciscoJosé Gomez 	Lujuria 114	Gula 127	Avaricia 126	Pereza 91	Ira 125	Envidia 47	Soberbia 74	
+28750 Asier Gomez 	Lujuria 104	Gula 61	Avaricia 60	Pereza 83	Ira 99	Envidia 52	Soberbia 59	
+28981 Andrés Gomez 	Lujuria 74	Gula 57	Avaricia 94	Pereza 85	Ira 121	Envidia 145	Soberbia 158	
+30100 Elías Gomez 	Lujuria 125	Gula 84	Avaricia 144	Pereza 99	Ira 119	Envidia 57	Soberbia 117	
+30274 Aníbal Gomez 	Lujuria 148	Gula 72	Avaricia 69	Pereza 141	Ira 118	Envidia 92	Soberbia 129	
+32182 Alejo Gomez 	Lujuria 78	Gula 75	Avaricia 119	Pereza 66	Ira 126	Envidia 86	Soberbia 67	
+32365 Fidel Gomez 	Lujuria 138	Gula 69	Avaricia 139	Pereza 68	Ira 94	Envidia 89	Soberbia 125	

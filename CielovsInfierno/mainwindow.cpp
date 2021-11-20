@@ -43,6 +43,17 @@ void MainWindow::on_btnSumOfActions_clicked(){
 
     qDebug() << "Se generan acciones";
 }
+// ----------------------------- CONSULTAS ------------------------------------------
+// Consulta de familia por id
+void MainWindow::on_btnQueryFamily_clicked(){
+    QString cmbOption = ui->cmbQueryFamily->currentText();
+    QString humanIdStr = ui->inpQueryFamily->text();
+
+    if(validNumber(humanIdStr)){
+        universe->world->queryFamilyActions(humanIdStr.toInt(), cmbOption);
+    }
+
+}
 
 
 
