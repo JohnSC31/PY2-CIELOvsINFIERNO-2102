@@ -1,4 +1,6 @@
 release/Actions.o
+release/Heaven.o
+release/HeavenTree.o
 release/Human.o
 release/HumanList.o
 release/PeopleTree.o

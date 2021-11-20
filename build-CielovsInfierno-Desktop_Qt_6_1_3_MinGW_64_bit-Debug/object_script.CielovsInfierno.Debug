@@ -1,4 +1,6 @@
 debug/Actions.o
+debug/Heaven.o
+debug/HeavenTree.o
 debug/Human.o
 debug/HumanList.o
 debug/PeopleTree.o
