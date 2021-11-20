@@ -87,17 +87,17 @@
      <string>Miembros del infierno</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="IniciarSalvacion">
+   <widget class="QPushButton" name="btnCondemnation">
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>90</y>
+      <y>120</y>
       <width>171</width>
-      <height>51</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Iniciar salvación</string>
+     <string>Iniciar condenacion</string>
     </property>
    </widget>
    <widget class="QPushButton" name="MostrarGanador">
@@ -316,6 +316,51 @@
     <property name="text">
      <string>Consultar Familia</string>
     </property>
+   </widget>
+   <widget class="QComboBox" name="cmbDemons">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>90</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Lucifer</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Belcebu</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Satan</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Abadon</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Mammon</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Belfegor</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Asmodeo</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

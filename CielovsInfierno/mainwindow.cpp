@@ -9,21 +9,20 @@ MainWindow::MainWindow(QWidget *parent)
 
     // detectar el cambio de los comboboxs
     //connect(ui->cmbTrays, SIGNAL(currentIndexChanged(int)), this, SLOT(on_cmbTrays_change(int)));
-//
-//        }else{
-//            QTextStream in(&file);
-          //  while (!in.atEnd()) {
-         //       QString line = in.readLine();
-         //       qDebug() << line;
-       //     }
-     //       file.close();
-   //     }
- //   }
+
+
+    // --------------------- ASIGNACION DE LOS ELEMNTOS UI PARA LAS ESTRUCTURAS --------------------------------
+    // el mundo
+    universe->world->lblLastLvlTree = ui->lblLastLvlTree;
+    universe->world->lblTreeData = ui->lblTreeData;
+
+    // el infierno
+
 
     //TheWorld* elMundo = new TheWorld;
     //qDebug() << elMundo->lastNamesList[1];
- //   QColor* elColor = new QColor();
-//    elColor->red();
+    //QColor* elColor = new QColor();
+    //elColor->red();
 
 
     Heaven* daHeaven = new Heaven();
@@ -68,6 +67,15 @@ void MainWindow::on_btnQueryFamily_clicked(){
         universe->world->queryFamilyActions(humanIdStr.toInt(), cmbOption);
     }
 
+}
+
+
+
+// -------------------------- CONDENACION DEL UN DEMONIO ---------------------------
+void MainWindow::on_btnCondemnation_clicked(){
+    QString cmbOption = ui->cmbDemons->currentText();
+    qDebug() << "inicia condenacion con " + cmbOption;
+    universe->hell->condemnation(cmbOption);
 }
 
 

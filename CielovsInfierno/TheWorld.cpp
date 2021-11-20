@@ -1,11 +1,18 @@
 #include "structs.h"
 
 
-TheWorld::TheWorld(){
+TheWorld::TheWorld(QString goods[7], QString sins[7]){
     humanList = new HumanList();
     peopleTree = new PeopleTree();
     treeCounter = 0; // contador para la generacion del arbol
     genTree = 100; // el minimo y cada cuanto se genera un nuevo arbol
+
+    // se asignan las acciones y los pecados
+    for(int i = 0; i < 7; i++){
+        goodActions[i] = goods[i];
+        sinsActions[i] = sins[i];
+    }
+
 
     // se inicializan las listas de datos
     initHumanIdList();
@@ -218,8 +225,7 @@ void TheWorld::queryFamilyActions(int humanId, QString actionType){
 
     if(searchedHuman != NULL){
         // busca su familia en el mundo
-        HumanList * family = new HumanList();
-        humanList->getFamilyOf(searchedHuman, family);
+        HumanList * family = humanList->getFamilyOf(searchedHuman);
         HumanNode * tmp = family->firstNode;
         if(actionType == "Pecados"){
             strQuery += "--------- Consulta pecados familia " + searchedHuman->human->lastName +"-" + searchedHuman->human->country + " ---------\n";
@@ -313,6 +319,9 @@ void TheWorld::initCountriesList(){
         while (!in.atEnd() && i < countriesLength) {
             QString line = in.readLine();
             countriesList[i] = line;
+            // QList contries,
+            // countries.append(new Country(line))
+            // country tendra nombre, totalSins, totalGoods
             i++;
         }
         file.close();

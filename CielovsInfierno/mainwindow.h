@@ -27,6 +27,7 @@ private slots:
     void on_btnGenerateHumans_clicked();
     void on_btnSumOfActions_clicked();
     void on_btnQueryFamily_clicked();
+    void on_btnCondemnation_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -31,7 +31,7 @@ public:
     QPushButton *btnSumOfActions;
     QPushButton *GenerarBuenasAcciones;
     QPushButton *ConsultarMiembrosDeInfierno;
-    QPushButton *IniciarSalvacion;
+    QPushButton *btnCondemnation;
     QPushButton *MostrarGanador;
     QPushButton *ConsultarBuenasAcciones;
     QPushButton *btnQueryFamily;
@@ -46,6 +46,7 @@ public:
     QLabel *label_4;
     QComboBox *comboBox_2;
     QPushButton *ConsultarPecados_2;
+    QComboBox *cmbDemons;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -75,9 +76,9 @@ public:
         ConsultarMiembrosDeInfierno = new QPushButton(centralwidget);
         ConsultarMiembrosDeInfierno->setObjectName(QString::fromUtf8("ConsultarMiembrosDeInfierno"));
         ConsultarMiembrosDeInfierno->setGeometry(QRect(570, 520, 171, 51));
-        IniciarSalvacion = new QPushButton(centralwidget);
-        IniciarSalvacion->setObjectName(QString::fromUtf8("IniciarSalvacion"));
-        IniciarSalvacion->setGeometry(QRect(560, 90, 171, 51));
+        btnCondemnation = new QPushButton(centralwidget);
+        btnCondemnation->setObjectName(QString::fromUtf8("btnCondemnation"));
+        btnCondemnation->setGeometry(QRect(560, 120, 171, 31));
         MostrarGanador = new QPushButton(centralwidget);
         MostrarGanador->setObjectName(QString::fromUtf8("MostrarGanador"));
         MostrarGanador->setGeometry(QRect(560, 180, 171, 51));
@@ -131,6 +132,16 @@ public:
         ConsultarPecados_2 = new QPushButton(centralwidget);
         ConsultarPecados_2->setObjectName(QString::fromUtf8("ConsultarPecados_2"));
         ConsultarPecados_2->setGeometry(QRect(320, 250, 171, 31));
+        cmbDemons = new QComboBox(centralwidget);
+        cmbDemons->addItem(QString());
+        cmbDemons->addItem(QString());
+        cmbDemons->addItem(QString());
+        cmbDemons->addItem(QString());
+        cmbDemons->addItem(QString());
+        cmbDemons->addItem(QString());
+        cmbDemons->addItem(QString());
+        cmbDemons->setObjectName(QString::fromUtf8("cmbDemons"));
+        cmbDemons->setGeometry(QRect(560, 90, 171, 22));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -153,7 +164,7 @@ public:
         btnSumOfActions->setText(QCoreApplication::translate("MainWindow", "Suma de acciones", nullptr));
         GenerarBuenasAcciones->setText(QCoreApplication::translate("MainWindow", "Generar Buenas Acciones", nullptr));
         ConsultarMiembrosDeInfierno->setText(QCoreApplication::translate("MainWindow", "Miembros del infierno", nullptr));
-        IniciarSalvacion->setText(QCoreApplication::translate("MainWindow", "Iniciar salvaci\303\263n", nullptr));
+        btnCondemnation->setText(QCoreApplication::translate("MainWindow", "Iniciar condenacion", nullptr));
         MostrarGanador->setText(QCoreApplication::translate("MainWindow", "Mostrar ganador", nullptr));
         ConsultarBuenasAcciones->setText(QCoreApplication::translate("MainWindow", "Consultar buenas acciones", nullptr));
         btnQueryFamily->setText(QCoreApplication::translate("MainWindow", "Consultar Familia", nullptr));
@@ -172,6 +183,14 @@ public:
         comboBox_2->setItemText(3, QCoreApplication::translate("MainWindow", "Menos Buenos", nullptr));
 
         ConsultarPecados_2->setText(QCoreApplication::translate("MainWindow", "Consultar Familia", nullptr));
+        cmbDemons->setItemText(0, QCoreApplication::translate("MainWindow", "Lucifer", nullptr));
+        cmbDemons->setItemText(1, QCoreApplication::translate("MainWindow", "Belcebu", nullptr));
+        cmbDemons->setItemText(2, QCoreApplication::translate("MainWindow", "Satan", nullptr));
+        cmbDemons->setItemText(3, QCoreApplication::translate("MainWindow", "Abadon", nullptr));
+        cmbDemons->setItemText(4, QCoreApplication::translate("MainWindow", "Mammon", nullptr));
+        cmbDemons->setItemText(5, QCoreApplication::translate("MainWindow", "Belfegor", nullptr));
+        cmbDemons->setItemText(6, QCoreApplication::translate("MainWindow", "Asmodeo", nullptr));
+
     } // retranslateUi
 
 };
