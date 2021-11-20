@@ -313,6 +313,9 @@ void TheWorld::initCountriesList(){
         while (!in.atEnd() && i < countriesLength) {
             QString line = in.readLine();
             countriesList[i] = line;
+            // QList contries,
+            // countries.append(new Country(line))
+            // country tendra nombre, totalSins, totalGoods
             i++;
         }
         file.close();
