@@ -9,11 +9,26 @@ MainWindow::MainWindow(QWidget *parent)
 
     // detectar el cambio de los comboboxs
     //connect(ui->cmbTrays, SIGNAL(currentIndexChanged(int)), this, SLOT(on_cmbTrays_change(int)));
+//
+//        }else{
+//            QTextStream in(&file);
+          //  while (!in.atEnd()) {
+         //       QString line = in.readLine();
+         //       qDebug() << line;
+       //     }
+     //       file.close();
+   //     }
+ //   }
 
-    // Asignacion de los componentes graficos
-    // el mundo
-    universe->world->lblTreeData = ui->lblTreeData;
-    universe->world->lblLastLvlTree = ui->lblLastLvlTree;
+    //TheWorld* elMundo = new TheWorld;
+    //qDebug() << elMundo->lastNamesList[1];
+ //   QColor* elColor = new QColor();
+//    elColor->red();
+
+
+    Heaven* daHeaven = new Heaven();
+    int h = daHeaven->hashFunction(986);
+    qDebug() << h;
 }
 
 MainWindow::~MainWindow()
@@ -42,6 +57,17 @@ void MainWindow::on_btnSumOfActions_clicked(){
     universe->world->sumOfActions();
 
     qDebug() << "Se generan acciones";
+}
+// ----------------------------- CONSULTAS ------------------------------------------
+// Consulta de familia por id
+void MainWindow::on_btnQueryFamily_clicked(){
+    QString cmbOption = ui->cmbQueryFamily->currentText();
+    QString humanIdStr = ui->inpQueryFamily->text();
+
+    if(validNumber(humanIdStr)){
+        universe->world->queryFamilyActions(humanIdStr.toInt(), cmbOption);
+    }
+
 }
 
 

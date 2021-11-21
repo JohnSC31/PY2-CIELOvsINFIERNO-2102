@@ -61,6 +61,8 @@ public:
     Human();
     Human(int _id, QString _name, QString _lastName, QString _country, QString belief, QString _profession, QString email);
     void addSin(QString sin, int amount);
+    QString sinsToString();
+    QString goodsToString();
     void addGood(QString good, int amount);
     QString toString();
     void print();
@@ -97,6 +99,7 @@ public:
     void insertEnd(Human * newHuman);
     void insertMiddle(Human * newHuman, HumanNode * refNode);
     HumanNode * searchHuman(int humanId, HumanNode * refNode);
+    void getFamilyOf(HumanNode * human, HumanList * family);
     bool isEmpty();
     int getLength();
 
@@ -125,7 +128,7 @@ public:
 public:
     PeopleTree();
     PeopleTree(HumanList * humanList);
-    void generateTree(HumanList * list, HumanNode * refNode, int moveNode, int nodes, int totalAmount);
+    void generateTree(HumanList * list, HumanNode * node, int moveNode, int jmp);
     void insert(HumanNode * _humanNode);
     int getNodeTreeAmount(int lengthList);
     TreeNode * insert(int _personId, HumanNode * _personeNode, TreeNode * node);
@@ -179,7 +182,7 @@ public:
 // --------------------- ESTRUCTURAS DEL MUNDO -----------------
 struct TheWorld{
 public:
-    int humans[10000];
+    Human * humans[100000];
     int indexHumansArray = 0;
     HumanList * humanList; // lista de humanos doblemente enlazada
     PeopleTree * peopleTree; // arbol de personas
@@ -225,6 +228,10 @@ public:
     int genHumanId();
     bool validHumanId(int newHumanId);
     void printPeopleTreeData();
+    void queryFamilyActions(int humanId, QString actionType);
+
+
+
     // inicializacion para los datos para la generacion de humanos
     void initHumanIdList();
     void initNamesList();
@@ -257,7 +264,73 @@ struct DemonFamilies{
 
 
 // -------------------------------------- ESTRUCTURAS PARA EL CIELO -------------------------------- //
+struct HeavenNode{
+    Human* human;
+    HeavenNode* leftChild;
+    HeavenNode* rightChild;
 
+public:
+    HeavenNode(Human* theHuman){
+        human = theHuman;
+    }
+};
+
+
+struct HeavenTree{
+    HeavenNode* root;
+
+
+public:
+    int height(HeavenNode* t);
+    int difference(HeavenNode* t);
+    /*
+    avl *rr_rotat(avl *);
+    avl *ll_rotat(avl *);
+    avl *lr_rotat(avl*);
+    avl *rl_rotat(avl *);
+    */
+    HeavenNode* rrRot(HeavenNode* r);
+    HeavenNode* llRot(HeavenNode* r);
+    HeavenNode* lrRot(HeavenNode* r);
+    HeavenNode* rlRot(HeavenNode* r);
+    HeavenNode* balance(HeavenNode* r);
+    HeavenNode* insert(HeavenNode* r, Human* theHuman);
+    void show(HeavenNode* r, int l);
+    void inorder(HeavenNode* r);
+
+public:
+    HeavenTree(){
+        root= NULL;
+    }
+
+};
+
+struct Heaven{
+
+    HeavenTree* heavenList[1000];
+
+public:
+    int hashFunction(int);
+    void insert(Human*);
+
+};
+
+struct Angel{
+    QString name;
+    int version;
+    int generation;
+    Human* savedHuman;
+    Angel* leftChild;
+    Angel* middleChild;
+    Angel* rightChild;
+};
+
+struct AngelTree{
+    int levels;
+    int generations;
+    Angel* root;
+    QString angelNames[10] =  {"Miguel", "Nuriel", "Aniel", "Rafael", "Gabriel", "Shamsiel", "Raguel", "Uriel", "Azael", "Sariel"};
+};
 
 
 // -------------------------------------- ESTRUCTURA PRINCIPAL ------------------------------------- //

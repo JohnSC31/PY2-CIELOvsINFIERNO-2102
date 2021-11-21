@@ -4,7 +4,8 @@
 #include <QMainWindow>
 #include <math.h>
 #include "structs.h"
-#include "helper.h"
+#include <QColor>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,6 +26,7 @@ public:
 private slots:
     void on_btnGenerateHumans_clicked();
     void on_btnSumOfActions_clicked();
+    void on_btnQueryFamily_clicked();
 
     void on_ConsultarMiembrosDeInfierno_clicked();
 
