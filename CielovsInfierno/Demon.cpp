@@ -72,6 +72,12 @@ Family * Demon::searchFamily(QString lastname, QString country){
     return NULL;
 }
 
+// recopila toda la informacion para la consulta del demonio y despliega en un archivo
+void Demon::demonQuery(){
+    QString log = "----------------------------------" + name + " - " + sin + "----------------------------------";
+
+}
+
 // ALGORITMOS PARA EL MANEJO DEL HEAP DE FAMILIAS
 int Demon::leftChild(int k){
     int child = 2 * k;

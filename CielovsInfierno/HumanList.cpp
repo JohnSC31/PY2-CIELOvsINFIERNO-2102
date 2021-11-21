@@ -175,6 +175,7 @@ HumanList * HumanList::getFamilyOf(HumanNode * human){
 }
 
 
+
 // obtiene si la list esta vacia
 bool HumanList::isEmpty(){
     return firstNode == NULL;

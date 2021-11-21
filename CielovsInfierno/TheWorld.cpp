@@ -252,6 +252,34 @@ void TheWorld::queryFamilyActions(int humanId, QString actionType){
 }
 
 
+void TheWorld::countActions(){
+    HumanNode* tmp = humanList->firstNode;
+    while(tmp != NULL){
+        countryList->addActions(tmp->human->country, tmp->human->countSins(), tmp->human->countGoods());
+        tmp = tmp->next;
+    }
+}
+
+void TheWorld::getBestCountry(){
+    CountryList* topList = countryList->getTopTen();
+    QString registro = "-----Registro de Top 10 Paises con buenas acciones: -----\n";
+    for(int i = 0; i < topList->countries.size(); i++){
+        registro += QString::number(i + 1) +". " +  topList->countries.at(i)->name + " - Buenas Acciones: " + QString::number(topList->countries.at(i)->totalGoods) + "\n";
+    }
+
+    writeFile("TopTenQuery", registro);
+}
+
+void TheWorld::getLastCountry(){
+    CountryList* lastList = countryList->getLastFive();
+    QString message = "----Registro de 5 paises Menos Buenos--------";
+    for(int i = 0; i < lastList->countries.size(); i++){
+        message += QString::number(i + 1) + lastList->countries.at(i)->name + " - Buenas Acciones: " + QString::number(lastList->countries.at(i)->totalGoods) + "\n";
+    }
+    writeFile("WorstFiveQuery", message);
+}
+
+
 // ------------ funciones para llenar los arreglos de datos para la generacion de humanos ---------------------------
 void TheWorld::initHumanIdList(){
     // el minimo son 10000, pero el max son 100 000
@@ -319,9 +347,7 @@ void TheWorld::initCountriesList(){
         while (!in.atEnd() && i < countriesLength) {
             QString line = in.readLine();
             countriesList[i] = line;
-            // QList contries,
-            // countries.append(new Country(line))
-            // country tendra nombre, totalSins, totalGoods
+            countryList->addCountry(line);
             i++;
         }
         file.close();
