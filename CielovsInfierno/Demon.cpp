@@ -74,8 +74,26 @@ Family * Demon::searchFamily(QString lastname, QString country){
 
 // recopila toda la informacion para la consulta del demonio y despliega en un archivo
 void Demon::demonQuery(){
-    QString log = "----------------------------------" + name + " - " + sin + "----------------------------------";
+    QString log = "----------------------------------" + name + " - " + sin + "---------------------------------- \n";
+    log += "Humanos: " + QString::number(getHumansAmount()) + "\n";
 
+    for(int i = 1; i <= familiesLength; i++){
+        log += "------- Familia " + families[i]->lastname + " " + families[i]->country + " -------\n";
+        log += families[i]->membersToString();
+        log += "\n\n";
+    }
+
+    writeFile(name + "_Query", log);
+}
+
+// obtiene el total de humanos almacenados en el heap de las familias
+int Demon::getHumansAmount(){
+    int totalHumans = 0;
+    for(int i = 1; i <= familiesLength; i++){
+        totalHumans += families[i]->members->getLength();
+    }
+
+    return totalHumans;
 }
 
 // ALGORITMOS PARA EL MANEJO DEL HEAP DE FAMILIAS
