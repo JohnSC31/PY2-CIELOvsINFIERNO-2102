@@ -273,7 +273,7 @@ public:
 
     void initFamilyHeap();
     void demonCondemnation(QList<Human *> humans, int fivePorcent, QString antagonistic);
-
+    void demonQuery();
     // algorimos para el heap de familias
     int leftChild(int k);
     int rightChild(int k);
@@ -305,6 +305,7 @@ public:
     void condemnation(QString demonName); // condenacion del mundo
     Demon * searchDemon(QString name);
     QString getAntagonistic(QString sin);
+    void demonQuery(QString denomName);
 };
 
 
