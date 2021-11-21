@@ -130,3 +130,4 @@ int Human::countGoods(){
     }
     return totalGoods;
 }
+

@@ -274,7 +274,7 @@
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_2">
+   <widget class="QComboBox" name="cmbActions">
     <property name="geometry">
      <rect>
       <x>320</x>

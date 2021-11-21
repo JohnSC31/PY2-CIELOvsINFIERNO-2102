@@ -44,7 +44,7 @@ public:
     QComboBox *cmbQueryFamily;
     QLineEdit *inpQueryFamily;
     QLabel *label_4;
-    QComboBox *comboBox_2;
+    QComboBox *cmbActions;
     QPushButton *ConsultarPecados_2;
     QComboBox *cmbDemons;
     QMenuBar *menubar;
@@ -122,13 +122,13 @@ public:
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(320, 70, 161, 20));
         label_4->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        comboBox_2 = new QComboBox(centralwidget);
-        comboBox_2->addItem(QString());
-        comboBox_2->addItem(QString());
-        comboBox_2->addItem(QString());
-        comboBox_2->addItem(QString());
-        comboBox_2->setObjectName(QString::fromUtf8("comboBox_2"));
-        comboBox_2->setGeometry(QRect(320, 220, 171, 22));
+        cmbActions = new QComboBox(centralwidget);
+        cmbActions->addItem(QString());
+        cmbActions->addItem(QString());
+        cmbActions->addItem(QString());
+        cmbActions->addItem(QString());
+        cmbActions->setObjectName(QString::fromUtf8("cmbActions"));
+        cmbActions->setGeometry(QRect(320, 220, 171, 22));
         ConsultarPecados_2 = new QPushButton(centralwidget);
         ConsultarPecados_2->setObjectName(QString::fromUtf8("ConsultarPecados_2"));
         ConsultarPecados_2->setGeometry(QRect(320, 250, 171, 31));
@@ -177,10 +177,10 @@ public:
         cmbQueryFamily->setItemText(1, QCoreApplication::translate("MainWindow", "Buenas Acciones", nullptr));
 
         label_4->setText(QCoreApplication::translate("MainWindow", "Identificador", nullptr));
-        comboBox_2->setItemText(0, QCoreApplication::translate("MainWindow", "Mas pecadores", nullptr));
-        comboBox_2->setItemText(1, QCoreApplication::translate("MainWindow", "Menos pecadores", nullptr));
-        comboBox_2->setItemText(2, QCoreApplication::translate("MainWindow", "Mas Buenos", nullptr));
-        comboBox_2->setItemText(3, QCoreApplication::translate("MainWindow", "Menos Buenos", nullptr));
+        cmbActions->setItemText(0, QCoreApplication::translate("MainWindow", "Mas pecadores", nullptr));
+        cmbActions->setItemText(1, QCoreApplication::translate("MainWindow", "Menos pecadores", nullptr));
+        cmbActions->setItemText(2, QCoreApplication::translate("MainWindow", "Mas Buenos", nullptr));
+        cmbActions->setItemText(3, QCoreApplication::translate("MainWindow", "Menos Buenos", nullptr));
 
         ConsultarPecados_2->setText(QCoreApplication::translate("MainWindow", "Consultar Familia", nullptr));
         cmbDemons->setItemText(0, QCoreApplication::translate("MainWindow", "Lucifer", nullptr));
