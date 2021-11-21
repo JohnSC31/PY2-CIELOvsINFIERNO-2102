@@ -84,3 +84,19 @@ void Human::print(){
 
     qDebug() << str.toUtf8();
 }
+
+int Human::countSins(){
+    int totalSins = 0;
+    for(int i =0; i < sins.size(); i++){
+        totalSins += sins.at(i)->amount;
+    }
+    return totalSins;
+}
+
+int Human::countGoods(){
+    int totalGoods = 0;
+    for(int i =0; i < goods.size(); i++){
+        totalGoods += goods.at(i)->amount;
+    }
+    return totalGoods;
+}

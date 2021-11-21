@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     Actions.cpp \
+    CountryList.cpp \
     Heaven.cpp \
     HeavenTree.cpp \
     Human.cpp \
