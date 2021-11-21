@@ -12,6 +12,7 @@ SOURCES += \
     Actions.cpp \
     Demon.cpp \
     Family.cpp \
+    CountryList.cpp \
     Heaven.cpp \
     HeavenTree.cpp \
     Hell.cpp \

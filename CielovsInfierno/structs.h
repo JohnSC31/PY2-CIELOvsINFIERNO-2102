@@ -64,6 +64,8 @@ public:
     int getNetSin(QString sin);
     QString toString();
     void print();
+    int countSins();
+    int countGoods();
 };
 
 struct HumanNode{
@@ -98,8 +100,41 @@ public:
     void insertMiddle(Human * newHuman, HumanNode * refNode);
     HumanNode * searchHuman(int humanId, HumanNode * refNode);
     HumanList * getFamilyOf(HumanNode * human);
+    void getFamilyOf(HumanNode * human, HumanList * family);
+    void countActions(void);
     bool isEmpty();
     int getLength();
+};
+
+struct Country{
+    QString name;
+    int totalGoods;
+    int totalSins;
+    bool taken;
+    bool takenLess;
+
+public:
+    Country(QString theName){
+        name = theName;
+        totalGoods = 0;
+        totalSins = 0;
+        taken = false;
+        takenLess = false;
+    }
+};
+
+struct CountryList{
+    QList <Country*> countries;
+
+public:
+    void addCountry(QString);
+    void addActions(QString, int, int);
+    Country* getMax();
+    Country* getMin();
+    CountryList* getTopTen();
+    CountryList* getLastFive();
+
+
 };
 
 // ----------------------- ESTRUCTURAS PARA EL ARBOL DE HUMANOS -----------
@@ -204,6 +239,10 @@ public:
     QString goodActions[7];
     QString sinsActions[7];
 
+    //Lista de paises para consulta
+
+    CountryList * countryList;
+
     //ui
     QLabel * lblTreeData;
     QLabel * lblLastLvlTree;
@@ -226,6 +265,9 @@ public:
     bool validHumanId(int newHumanId);
     void printPeopleTreeData();
     void queryFamilyActions(int humanId, QString actionType);
+    void countActions(void);
+    void getBestCountry();
+    void getLastCountry();
 
 
 
