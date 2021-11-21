@@ -78,6 +78,11 @@ void MainWindow::on_btnCondemnation_clicked(){
     universe->hell->condemnation(cmbOption);
 }
 
+// ----------------------- consulta de un demonio ----------------------------------
+void MainWindow::on_btnDemonQuery_clicked(){
+    QString cmbOption = ui->cmbDemons->currentText();
+    universe->hell->demonQuery(cmbOption);
+}
 
 
 
