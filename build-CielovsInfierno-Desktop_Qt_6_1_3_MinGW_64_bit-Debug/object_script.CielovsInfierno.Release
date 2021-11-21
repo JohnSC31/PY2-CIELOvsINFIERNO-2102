@@ -1,6 +1,7 @@
 release/Actions.o
 release/Demon.o
 release/Family.o
+release/CountryList.o
 release/Heaven.o
 release/HeavenTree.o
 release/Hell.o

@@ -22,6 +22,8 @@
 struct Human; // persona
 struct HumanNode; // nodo de personas
 struct HumanList; // la lista de personas
+struct Country;
+struct CountryList;
 struct Actions; // Pecados y buenas acciones
 struct Action;
 
