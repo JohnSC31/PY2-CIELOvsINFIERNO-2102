@@ -63,3 +63,14 @@ QString Hell::getAntagonistic(QString sin){
 
     return "X";
 }
+
+
+// Consulta de demonios y todos sus valores
+void Hell::demonQuery(QString demonName){
+    Demon * demon = searchDemon(demonName);
+    if(demon != NULL){
+        demon->demonQuery();
+    }else{
+        qDebug() << "Demonio no encontrado para consultar";
+    }
+}
