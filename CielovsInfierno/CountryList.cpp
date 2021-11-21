@@ -1,4 +1,4 @@
-#include <structs.h>
+#include "structs.h"
 
 void CountryList::addCountry(QString name){
     countries.append(new Country(name));

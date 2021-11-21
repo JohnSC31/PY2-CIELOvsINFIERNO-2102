@@ -1,6 +1,7 @@
 debug/Actions.o
 debug/Demon.o
 debug/Family.o
+debug/CountryList.o
 debug/Heaven.o
 debug/HeavenTree.o
 debug/Hell.o
