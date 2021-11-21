@@ -1,8 +1,14 @@
 release/Actions.o
+release/CountryList.o
+release/Demon.o
+release/Family.o
+release/CountryList.o
 release/Heaven.o
 release/HeavenTree.o
+release/Hell.o
 release/Human.o
 release/HumanList.o
+release/ListCountry.o
 release/PeopleTree.o
 release/TheWorld.o
 release/Universe.o

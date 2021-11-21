@@ -9,21 +9,20 @@ MainWindow::MainWindow(QWidget *parent)
 
     // detectar el cambio de los comboboxs
     //connect(ui->cmbTrays, SIGNAL(currentIndexChanged(int)), this, SLOT(on_cmbTrays_change(int)));
-//
-//        }else{
-//            QTextStream in(&file);
-          //  while (!in.atEnd()) {
-         //       QString line = in.readLine();
-         //       qDebug() << line;
-       //     }
-     //       file.close();
-   //     }
- //   }
+
+
+    // --------------------- ASIGNACION DE LOS ELEMNTOS UI PARA LAS ESTRUCTURAS --------------------------------
+    // el mundo
+    universe->world->lblLastLvlTree = ui->lblLastLvlTree;
+    universe->world->lblTreeData = ui->lblTreeData;
+
+    // el infierno
+
 
     //TheWorld* elMundo = new TheWorld;
     //qDebug() << elMundo->lastNamesList[1];
- //   QColor* elColor = new QColor();
-//    elColor->red();
+    //QColor* elColor = new QColor();
+    //elColor->red();
 
 
     Heaven* daHeaven = new Heaven();
@@ -72,6 +71,28 @@ void MainWindow::on_btnQueryFamily_clicked(){
 
 
 
+// -------------------------- CONDENACION DEL UN DEMONIO ---------------------------
+void MainWindow::on_btnCondemnation_clicked(){
+    QString cmbOption = ui->cmbDemons->currentText();
+    qDebug() << "inicia condenacion con " + cmbOption;
+    universe->hell->condemnation(cmbOption);
+}
+
+// ----------------------- consulta de un demonio ----------------------------------
+void MainWindow::on_btnDemonQuery_clicked(){
+    QString cmbOption = ui->cmbDemons->currentText();
+    universe->hell->demonQuery(cmbOption);
+}
+
+
+
+
+void MainWindow::on_ConsultarPecados_2_clicked()
+{
+    QString option = ui->cmbActions->currentText();
+    qDebug() << option;
+    universe->world->initJobsList();
+}
 
 
 void MainWindow::on_ConsultarMiembrosDeInfierno_clicked()

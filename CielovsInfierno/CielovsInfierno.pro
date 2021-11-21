@@ -10,10 +10,16 @@ CONFIG += c++11
 
 SOURCES += \
     Actions.cpp \
+    CountryList.cpp \
+    Demon.cpp \
+    Family.cpp \
+    CountryList.cpp \
     Heaven.cpp \
     HeavenTree.cpp \
+    Hell.cpp \
     Human.cpp \
     HumanList.cpp \
+    ListCountry.cpp \
     PeopleTree.cpp \
     TheWorld.cpp \
     Universe.cpp \

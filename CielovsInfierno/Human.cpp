@@ -74,8 +74,38 @@ QString Human::goodsToString(){
 
 
 QString Human::toString(){
-    return QString::number(id) + " " + name + " " + lastName + " - " + country;
+    return QString::number(id) + " " + name + " " + lastName + " de " + country + ", creencia " + belief + " ocupacion " + profession;
 }
+
+// retorna la cantidad de esa accion en especifico
+int Human::getActionAmount(QString action){
+
+    for(int i = 0; i < 7; i++){
+        if(goods.at(i)->action == action){
+            return goods.at(i)->amount;
+        }
+        if(sins.at(i)->action == action){
+            return sins.at(i)->amount;
+        }
+    }
+
+    return -1; // no existe la accion
+}
+
+// realiza la resta del pecado y su antagonico para devolver el pecado puro
+int Human::getNetSin(QString sin){
+
+    for(int i = 0; i < 7; i++){
+        if(sins.at(i)->action == sin){
+            // se retorna la cantidad de pecado menos su antagonico
+            return sins.at(i)->amount - goods.at(i)->amount;
+        }
+    }
+
+    qDebug() << "pecado neto inexistente";
+    return -1; // no existe el pecado
+}
+
 
 // impresion en consola de la informacion del humano
 void Human::print(){
@@ -84,3 +114,20 @@ void Human::print(){
 
     qDebug() << str.toUtf8();
 }
+
+int Human::countSins(){
+    int totalSins = 0;
+    for(int i =0; i < sins.size(); i++){
+        totalSins += sins.at(i)->amount;
+    }
+    return totalSins;
+}
+
+int Human::countGoods(){
+    int totalGoods = 0;
+    for(int i =0; i < goods.size(); i++){
+        totalGoods += goods.at(i)->amount;
+    }
+    return totalGoods;
+}
+

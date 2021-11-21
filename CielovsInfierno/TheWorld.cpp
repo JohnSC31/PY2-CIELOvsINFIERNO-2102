@@ -1,11 +1,20 @@
 #include "structs.h"
 #include <QString>
 
-TheWorld::TheWorld(){
+TheWorld::TheWorld(QString goods[7], QString sins[7]){
     humanList = new HumanList();
     peopleTree = new PeopleTree();
     treeCounter = 0; // contador para la generacion del arbol
     genTree = 100; // el minimo y cada cuanto se genera un nuevo arbol
+
+    countryList = new CountryList(); // inicializacion de contry list
+
+    // se asignan las acciones y los pecados
+    for(int i = 0; i < 7; i++){
+        goodActions[i] = goods[i];
+        sinsActions[i] = sins[i];
+    }
+
 
     // se inicializan las listas de datos
     initHumanIdList();
@@ -220,8 +229,7 @@ void TheWorld::queryFamilyActions(int humanId, QString actionType){
 
     if(searchedHuman != NULL){
         // busca su familia en el mundo
-        HumanList * family = new HumanList();
-        humanList->getFamilyOf(searchedHuman, family);
+        HumanList * family = humanList->getFamilyOf(searchedHuman);
         HumanNode * tmp = family->firstNode;
         if(actionType == "Pecados"){
             strQuery += "--------- Consulta pecados familia " + searchedHuman->human->lastName +"-" + searchedHuman->human->country + " ---------\n";
@@ -245,6 +253,34 @@ void TheWorld::queryFamilyActions(int humanId, QString actionType){
 
     writeFile("FamilyQuery", strQuery);
 
+}
+
+
+void TheWorld::countActions(){
+    HumanNode* tmp = humanList->firstNode;
+    while(tmp != NULL){
+        countryList->addActions(tmp->human->country, tmp->human->countSins(), tmp->human->countGoods());
+        tmp = tmp->next;
+    }
+}
+
+void TheWorld::getBestCountry(){
+    ListCountry* topList = countryList->getTopTen();
+    QString registro = "-----Registro de Top 10 Paises con buenas acciones: -----\n";
+    for(int i = 0; i < topList->countries.size(); i++){
+        registro += QString::number(i + 1) +". " +  topList->countries.at(i)->name + " - Buenas Acciones: " + QString::number(topList->countries.at(i)->totalGoods) + "\n";
+    }
+
+    writeFile("TopTenQuery", registro);
+}
+
+void TheWorld::getLastCountry(){
+    ListCountry* lastList = countryList->getLastFive();
+    QString message = "----Registro de 5 paises Menos Buenos--------";
+    for(int i = 0; i < lastList->countries.size(); i++){
+        message += QString::number(i + 1) + lastList->countries.at(i)->name + " - Buenas Acciones: " + QString::number(lastList->countries.at(i)->totalGoods) + "\n";
+    }
+    writeFile("WorstFiveQuery", message);
 }
 
 
@@ -315,6 +351,7 @@ void TheWorld::initCountriesList(){
         while (!in.atEnd() && i < countriesLength) {
             QString line = in.readLine();
             countriesList[i] = line;
+            countryList->addCountry(line);
             i++;
         }
         file.close();

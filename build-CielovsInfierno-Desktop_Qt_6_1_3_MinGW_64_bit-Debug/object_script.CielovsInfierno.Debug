@@ -1,8 +1,14 @@
 debug/Actions.o
+debug/CountryList.o
+debug/Demon.o
+debug/Family.o
+debug/CountryList.o
 debug/Heaven.o
 debug/HeavenTree.o
+debug/Hell.o
 debug/Human.o
 debug/HumanList.o
+debug/ListCountry.o
 debug/PeopleTree.o
 debug/TheWorld.o
 debug/Universe.o

@@ -74,37 +74,37 @@
      <string>Generar Buenas Acciones</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="ConsultarMiembrosDeInfierno">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>520</y>
-      <width>171</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Iniciar condenación</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="IniciarSalvacion">
+   <widget class="QPushButton" name="btnDemonQuery">
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>90</y>
+      <y>160</y>
       <width>171</width>
-      <height>51</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Iniciar salvación</string>
+     <string>Consultar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCondemnation">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>120</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Iniciar condenacion</string>
     </property>
    </widget>
    <widget class="QPushButton" name="MostrarGanador">
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>180</y>
+      <y>460</y>
       <width>171</width>
       <height>51</height>
      </rect>
@@ -274,7 +274,7 @@
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_2">
+   <widget class="QComboBox" name="cmbActions">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -316,6 +316,51 @@
     <property name="text">
      <string>Consultar Familia</string>
     </property>
+   </widget>
+   <widget class="QComboBox" name="cmbDemons">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>90</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Lucifer</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Belcebu</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Satan</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Abadon</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Mammon</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Belfegor</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Asmodeo</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

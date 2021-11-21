@@ -158,8 +158,9 @@ HumanNode * HumanList::searchHuman(int humanId, HumanNode * refNode){
 
 
 // obtiene he inserta en la lista de familia a todos los humanos de esa familia
-void HumanList::getFamilyOf(HumanNode * human, HumanList * family){
+HumanList * HumanList::getFamilyOf(HumanNode * human){
     HumanNode * tmp = firstNode;
+    HumanList * family = new HumanList();
     while(tmp != NULL){
 
         if(tmp->human->country == human->human->country && tmp->human->lastName == human->human->lastName){
@@ -169,7 +170,10 @@ void HumanList::getFamilyOf(HumanNode * human, HumanList * family){
 
         tmp = tmp->next;
     }
+
+    return family;
 }
+
 
 
 // obtiene si la list esta vacia

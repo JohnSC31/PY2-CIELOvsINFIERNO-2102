@@ -27,6 +27,10 @@ private slots:
     void on_btnGenerateHumans_clicked();
     void on_btnSumOfActions_clicked();
     void on_btnQueryFamily_clicked();
+    void on_btnCondemnation_clicked();
+    void on_btnDemonQuery_clicked();
+
+    void on_ConsultarPecados_2_clicked();
 
     void on_ConsultarMiembrosDeInfierno_clicked();
 
