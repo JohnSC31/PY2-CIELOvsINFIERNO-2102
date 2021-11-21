@@ -7,6 +7,8 @@ TheWorld::TheWorld(QString goods[7], QString sins[7]){
     treeCounter = 0; // contador para la generacion del arbol
     genTree = 100; // el minimo y cada cuanto se genera un nuevo arbol
 
+    countryList = new CountryList(); // inicializacion de contry list
+
     // se asignan las acciones y los pecados
     for(int i = 0; i < 7; i++){
         goodActions[i] = goods[i];

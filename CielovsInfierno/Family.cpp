@@ -26,3 +26,14 @@ int Family::getTotalAction(QString action){
 void Family::insert(Human * human){
     members->insertHuman(human);
 }
+
+QString Family::membersToString(){
+    QString str = "";
+    HumanNode * tmp = members->firstNode;
+    while(tmp != NULL){
+        str += tmp->human->toString() + "\n";
+        tmp = tmp->next;
+    }
+
+    return str;
+}

@@ -74,7 +74,7 @@ QString Human::goodsToString(){
 
 
 QString Human::toString(){
-    return QString::number(id) + " " + name + " " + lastName + " - " + country;
+    return QString::number(id) + " " + name + " " + lastName + " de " + country + ", creencia " + belief + " ocupacion " + profession;
 }
 
 // retorna la cantidad de esa accion en especifico

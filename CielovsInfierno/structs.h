@@ -316,6 +316,7 @@ public:
     Family(QString lastname, QString country);
     int getTotalAction(QString action);
     void insert(Human * newHuman);
+    QString membersToString();
 };
 
 struct Demon{
@@ -335,6 +336,7 @@ public:
     void initFamilyHeap();
     void demonCondemnation(QList<Human *> humans, int fivePorcent, QString antagonistic);
     void demonQuery();
+    int getHumansAmount();
     // algorimos para el heap de familias
     int leftChild(int k);
     int rightChild(int k);
