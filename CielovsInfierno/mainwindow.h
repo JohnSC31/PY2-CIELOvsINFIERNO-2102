@@ -29,6 +29,8 @@ private slots:
     void on_btnQueryFamily_clicked();
     void on_btnCondemnation_clicked();
 
+    void on_ConsultarPecados_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

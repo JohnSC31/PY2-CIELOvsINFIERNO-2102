@@ -261,7 +261,7 @@ void TheWorld::countActions(){
 }
 
 void TheWorld::getBestCountry(){
-    CountryList* topList = countryList->getTopTen();
+    ListCountry* topList = countryList->getTopTen();
     QString registro = "-----Registro de Top 10 Paises con buenas acciones: -----\n";
     for(int i = 0; i < topList->countries.size(); i++){
         registro += QString::number(i + 1) +". " +  topList->countries.at(i)->name + " - Buenas Acciones: " + QString::number(topList->countries.at(i)->totalGoods) + "\n";
@@ -271,7 +271,7 @@ void TheWorld::getBestCountry(){
 }
 
 void TheWorld::getLastCountry(){
-    CountryList* lastList = countryList->getLastFive();
+    ListCountry* lastList = countryList->getLastFive();
     QString message = "----Registro de 5 paises Menos Buenos--------";
     for(int i = 0; i < lastList->countries.size(); i++){
         message += QString::number(i + 1) + lastList->countries.at(i)->name + " - Buenas Acciones: " + QString::number(lastList->countries.at(i)->totalGoods) + "\n";

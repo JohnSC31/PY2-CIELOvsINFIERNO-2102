@@ -81,3 +81,11 @@ void MainWindow::on_btnCondemnation_clicked(){
 
 
 
+
+void MainWindow::on_ConsultarPecados_2_clicked()
+{
+    QString option = ui->cmbActions->currentText();
+    qDebug() << option;
+    universe->world->initJobsList();
+}
+

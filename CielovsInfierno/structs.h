@@ -139,6 +139,23 @@ public:
 
 };
 
+struct ListCountry{
+    QList <Country*> countries;
+
+public:
+    void addCountry(QString);
+    void addActions(QString, int, int);
+    Country* getMax();
+    Country* getMaxSin();
+    Country* getMinSin();
+    Country* getMin();
+    ListCountry* getTopTen();
+    ListCountry* getLastFive();
+    ListCountry* getTopTenSinners();
+    ListCountry* getLastFiveSinners();
+
+};
+
 // ----------------------- ESTRUCTURAS PARA EL ARBOL DE HUMANOS -----------
 struct TreeNode{
 public:
@@ -243,7 +260,7 @@ public:
 
     //Lista de paises para consulta
 
-    CountryList * countryList;
+    ListCountry * countryList;
 
     //ui
     QLabel * lblTreeData;
@@ -401,8 +418,10 @@ public:
 struct Heaven{
 
     HeavenTree* heavenList[1000];
+    HumanList* humanWorld;
 
 public:
+    Heaven(HumanList* worldList);
     int hashFunction(int);
     void insert(Human*);
 
@@ -433,7 +452,7 @@ public:
     // las estructuras principales el mundo, infierno y cielo
     TheWorld * world;
     Hell * hell;
-    // cielo
+    Heaven* heaven;
 
     // esta en orden los demonios con su pecado y el pecado con su antagonico
     QString goodActions[7] = {"Castidad", "Ayuno", "Donación", "Diligencia", "Calma", "Solidaridad", "Humildad"};

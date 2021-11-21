@@ -1,4 +1,10 @@
 #include <structs.h>
+Heaven::Heaven(HumanList* worldList){
+    humanWorld = worldList;
+    generations = 0;
+
+}
+
 
 int Heaven::hashFunction(int id){
     //int id = theHuman->id;
@@ -15,4 +21,17 @@ void Heaven::insert(Human * theHuman){
     //heavenList[hashId]->insert(heavenList[hashId], theHuman);
     HeavenTree* hashNode = heavenList[hashId];
     hashNode->insert(hashNode->root, theHuman);
+}
+
+
+Human* Heaven::saveHuman(){
+    HumanNode* tmp = humanWorld->firstNode;
+    while(tmp != NULL){
+        if(tmp->human->state == 1){
+            if(tmp->human->countGoods() > tmp->human->countSins()){
+                return tmp->human;
+            }
+        }
+        tmp = tmp->next;
+    }
 }
