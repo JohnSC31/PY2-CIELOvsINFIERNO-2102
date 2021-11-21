@@ -11,6 +11,7 @@
 
 // ui
 #include <QLabel>
+#include <QComboBox>
 
 #include "helper.h"
 
@@ -30,11 +31,9 @@ struct TreeNode; // nodos del arbol
 struct TheWorld;
 
 struct Demon;
-struct FamilyNode;
-struct DemonFamilies; // heap donde se almacenan las familias
+struct Family;
 
-
-struct Universe;
+struct Universe; // contiene a todas las estructuras
 
 
 // -------------------------------------- ESTRUCTURAS DEL MUNDO ------------------------------------ //
@@ -61,6 +60,8 @@ public:
     QString sinsToString();
     QString goodsToString();
     void addGood(QString good, int amount);
+    int getActionAmount(QString action);
+    int getNetSin(QString sin);
     QString toString();
     void print();
 };
@@ -96,7 +97,7 @@ public:
     void insertEnd(Human * newHuman);
     void insertMiddle(Human * newHuman, HumanNode * refNode);
     HumanNode * searchHuman(int humanId, HumanNode * refNode);
-    void getFamilyOf(HumanNode * human, HumanList * family);
+    HumanList * getFamilyOf(HumanNode * human);
     bool isEmpty();
     int getLength();
 };
@@ -200,15 +201,15 @@ public:
 
     // pecados para los humanos
     //Estos QString sirven para imprimir los pecados e identificarlos en el programa
-    QString goodActions[7] = {"Castidad", "Ayuno", "Donación", "Diligencia", "Calma", "Solidaridad", "Humildad" };
-    QString sinsActions[7] = {"Lujuria",  "Gula", "Avaricia", "Pereza", "Ira", "Envidia", "Soberbia"};
+    QString goodActions[7];
+    QString sinsActions[7];
 
     //ui
     QLabel * lblTreeData;
     QLabel * lblLastLvlTree;
 
 public:
-    TheWorld();
+    TheWorld(QString goods[7], QString sins[7]);
     void generateHumans(int numHumans);
     void initActions(Human * human);
     HumanNode * searchHuman(int humanId);
@@ -242,6 +243,72 @@ public:
 
 
 // -------------------------------------- ESTRUCTURAS PARA EL INFIERNO ----------------------------- //
+struct Family{
+public:
+    QString country;
+    QString lastname;
+    HumanList * members;
+    int totalAction; // se almacenara el total para la accion especificada
+
+
+public:
+    Family(QString lastname, QString country);
+    int getTotalAction(QString action);
+    void insert(Human * newHuman);
+};
+
+struct Demon{
+
+public:
+    QString name;
+    QString sin;
+    int heapSize = 100000; // para las iteraciones y validaciones
+    int familiesLength; // insertar en length + 1 si es menor que heapSize
+    // 1000000 de espacios para familias
+    Family * families[100000];
+
+public:
+    Demon();
+    Demon(QString name, QString sin);
+
+    void initFamilyHeap();
+    void demonCondemnation(QList<Human *> humans, int fivePorcent, QString antagonistic);
+
+    // algorimos para el heap de familias
+    int leftChild(int k);
+    int rightChild(int k);
+    int father(int k);
+    bool validK(int k);
+    void exchange(int a, int b);
+    void insertFamily(Family * newFamily);
+    void deleteFamily(); // se elimina la raiz
+    void inverseOrderFamily();
+    void orderFamily(int k);
+    void orderHeap(); // ordena el heap de familias para que este ordenado
+    void insertHumanFamily(Human * human);
+    Family * searchFamily(QString lastname, QString country);
+};
+
+
+struct Hell{
+public:
+    QString demonsName[7];
+    QString demonsSin[7];
+    QString antagonistic[7]; // buenas acciones
+    Demon * demons[7]; // lista de demonios
+    HumanList * humansWorld; // referencia de la lista de humanos en el mundo
+
+
+public:
+    Hell(HumanList * humanListWorld, QString demonsName[7], QString sinsActions[7], QString goodActions[7]);
+    void initDemons();
+    void condemnation(QString demonName); // condenacion del mundo
+    Demon * searchDemon(QString name);
+    QString getAntagonistic(QString sin);
+};
+
+
+
 
 
 // -------------------------------------- ESTRUCTURAS PARA EL CIELO -------------------------------- //
@@ -320,8 +387,15 @@ struct Universe{
 public:
     // las estructuras principales el mundo, infierno y cielo
     TheWorld * world;
-    // infierno
+    Hell * hell;
     // cielo
+
+    // esta en orden los demonios con su pecado y el pecado con su antagonico
+    QString goodActions[7] = {"Castidad", "Ayuno", "Donación", "Diligencia", "Calma", "Solidaridad", "Humildad"};
+
+    QString sinsActions[7] = {"Lujuria",  "Gula", "Avaricia", "Pereza", "Ira", "Envidia", "Soberbia"};
+
+    QString demonsName[7] = {"Asmodeo", "Belfegor", "Mammon", "Abadon", "Satan", "Belcebu", "Lucifer" };
 
 public:
     Universe();

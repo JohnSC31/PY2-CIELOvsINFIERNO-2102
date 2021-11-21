@@ -16,6 +16,6 @@ QString capitalize(QString str);
 int maxInt(int a, int b);
 
 bool writeFile(QString path, QString text);
-
+void deleteFile(QString path);
 
 #endif // HELPER_H
